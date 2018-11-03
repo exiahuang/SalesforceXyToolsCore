@@ -55,6 +55,8 @@ class Soap(Salesforce):
             "SOAPAction": '""'
         }
 
+        self.instance_url = 'https://{instance}'.format(instance=self.sf_instance)
+        
         self.base_url = ('https://{instance}/services/data/v{version}/'
                          .format(instance=self.sf_instance,
                                  version=self.sf_version))
@@ -175,6 +177,21 @@ class Soap(Salesforce):
         #     raise SoapException(result, result.status_code)
         return result
 
+class RestApi(Soap):
+    def get(self, path, params={}):
+        return self.call_rest("GET", path, params=params)
+        
+    def post(self, path, params):
+        return self.call_rest("POST", path, params=params)
+
+    def call_rest(self, method, path, **kwargs):
+        print(self.instance_url + path)
+        result = self._call_salesforce(method, self.instance_url + path, **kwargs)
+        if result.status_code != 200:
+            raise SoapException(result, result.status_code)
+        return result
+
+
 class MetadataApi(Soap):
     def __init__(
             self, username=None, password=None, security_token=None,
@@ -236,6 +253,11 @@ class MetadataApi(Soap):
                         "name" : "StandardValueSet",
                         "members" : soap_envelopes.get_StandardValueSet(self.sf_version)
                     })
+                elif metaObj["xmlName"] == "CustomObject":
+                    metadata_types.append({
+                        "name" : metaObj["xmlName"],
+                        "members" : self._getCustomObjectMembers()
+                    })
                 else:
                     metadata_types.append({
                         "name" : metaObj["xmlName"],
@@ -258,6 +280,9 @@ class MetadataApi(Soap):
                     "members" : members
                 })
         return metadata_types
+    
+    def _getCustomObjectMembers(self):
+        return [str(sobj["name"]) for sobj in self.describe()["sobjects"]]
 
     def buildPackageXml(self, retrive_metadata_objects=None):
         packagexml_types = ""
@@ -335,7 +360,6 @@ class MetadataApi(Soap):
         # self.sf_version
         request_body = soap_envelopes.get_list_metadata_envelope(session_id=self.session_id, query_option_list=query_option_list,api_version=self.sf_version)
         result = self._doSoapQueryList("listMetadataResponse", request_body)
-        print(result)
         if not isinstance(result, list): 
             result = []
         return result
@@ -558,6 +582,12 @@ class ToolingApi(Salesforce):
     def getLog(self, id):
         url = self.base_url + "sobjects/ApexLog/" + id + "/Body"
         status_code, result = self._call_api(method="GET", url=url, data=None, return_type='text')
+        return status_code, result
+
+    def toolingQuery(self, queryStr):
+        url = self.base_url + "tooling/query"
+        params = {'q': queryStr}
+        status_code, result = self._call_api(method="GET", url=url, data=None, params=params)
         return status_code, result
 
     def _getComponentFailures(self, ContainerAsyncRequest_status):

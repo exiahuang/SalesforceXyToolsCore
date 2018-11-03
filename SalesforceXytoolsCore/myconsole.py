@@ -5,9 +5,9 @@ https://github.com/exiahuang
 
 class MyConsole(object):
     def debug(self, msg):
-        return
         # print(msg)
+        return
 
     def log(self, msg):
-        return
         # print(msg)
+        return
