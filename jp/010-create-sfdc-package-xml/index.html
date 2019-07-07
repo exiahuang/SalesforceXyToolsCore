@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <meta name="author" content="Exia.Huang">
+  <link rel="shortcut icon" href="../../img/favicon.ico">
+  <title>SalesforceXyToolsCore/Python上でSalesforce組織からのPackage.xmlを作成 - SalesforceXyToolsCore</title>
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+
+  <link rel="stylesheet" href="../../css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../css/theme_extra.css" type="text/css" />
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css">
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "SalesforceXyToolsCore/Python\u4e0a\u3067Salesforce\u7d44\u7e54\u304b\u3089\u306ePackage.xml\u3092\u4f5c\u6210";
+    var mkdocs_page_input_path = "jp\\010-create-sfdc-package-xml.md";
+    var mkdocs_page_url = "/SalesforceXyToolsCore/jp/010-create-sfdc-package-xml/";
+  </script>
+  
+  <script src="../../js/jquery-2.1.1.min.js" defer></script>
+  <script src="../../js/modernizr-2.8.3.min.js" defer></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script> 
+  
+  <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+      ga('create', 'UA-96193717-1', 'auto');
+      ga('send', 'pageview');
+  </script>
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+      <div class="wy-side-nav-search">
+        <a href="../.." class="icon icon-home"> SalesforceXyToolsCore</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+	<ul class="current">
+	  
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../..">SalesforcexytoolsCore</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">Jp</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../001-SalesforceXyToolsCore-Introduce/">SalesforcexytoolsCore Introduce</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../002-apexclass-curd/">SalesforceXyToolsCore/Python上でApexClassを作成・更新・削除</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../003-sobject-curd/">SalesforceXyToolsCore/Python上でSobjectを作成・更新・削除</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../004-sfdc-get-apexlog/">SalesforceXyToolsCore/Python上でApexログを取得</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../005-run-apexscript/">SalesforceXyToolsCore/Python上でApexScriptを実行する</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../006-run-soql-queries/">SalesforceXyToolsCore/Python上でSalesforce組織のSoqlを実行する</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../007-run-testclass/">SalesforceXyToolsCore/Python上でテストクラスを実行する</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../008-run-rest-api/">SalesforceXyToolsCore/Python上でSalesforceのREST APIへアクセス</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../009-sfdc-describe-metadata/">SalesforceXyToolsCore/Python上でSalesforce組織を説明するメタデータを取得する</a>
+                </li>
+                <li class=" current">
+                    
+    <a class="current" href="./">SalesforceXyToolsCore/Python上でSalesforce組織からのPackage.xmlを作成</a>
+    <ul class="subnav">
+            
+    <li class="toctree-l3"><a href="#topic">Topic</a></li>
+    
+
+    <li class="toctree-l3"><a href="#packagexml">Package.xmlの作成</a></li>
+    
+
+    <li class="toctree-l3"><a href="#sfdcpackage">SFDC組織からPackage関するリストを取得</a></li>
+    
+
+    </ul>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../011-sfdc-get-all-metadata-map/">SalesforceXyToolsCore/Python上ですべてのMetadataを情報を取得してみよう</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../012-sfdc-list-folders/">SalesforceXyToolsCore/Python上でSalesforce組織のフォルダーを取得する</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../013-retrieve-all-metadata/">SalesforceXyToolsCore/Python上でたった3行でSalesforce組織からのメタデータの取得</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../014-download-attachments/">SalesforceXyToolsCore/Python上でSalesforce組織の添付ファイルを一括ダウンロードする</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../SalesforceXyToolsCore-Python-Library-For-salesforce/">SalesforcexytoolsCore, a python library for salesforce</a>
+                </li>
+    </ul>
+	    </li>
+          
+        </ul>
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../..">SalesforceXyToolsCore</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../..">Docs</a> &raquo;</li>
+    
+      
+        
+          <li>Jp &raquo;</li>
+        
+      
+    
+    <li>SalesforceXyToolsCore/Python上でSalesforce組織からのPackage.xmlを作成</li>
+    <li class="wy-breadcrumbs-aside">
+      
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <h1 id="topic">Topic</h1>
+<ul>
+<li><a href="http://salesforcexytools.com/categories/SalesforceXyToolsCore-JP/">SalesforceXyToolsCore</a>を使ってSalesforce組織からのPackage.xmlを作成</li>
+</ul>
+<h1 id="packagexml">Package.xmlの作成</h1>
+<ul>
+<li>Salesforce組織のユーザ名、パスワード、Apiバージョン、Product/Sandboxを設定してください。</li>
+</ul>
+<pre><code class="python">from SalesforceXytoolsCore import *
+import pprint
+
+config = {
+    &quot;api_version&quot;: 42.0, 
+    &quot;username&quot;: &quot;sfdc username&quot;, 
+    &quot;password&quot;: &quot;sfdc password&quot;, 
+    &quot;security_token&quot;: &quot;&quot;, 
+    &quot;is_sandbox&quot;: True
+}
+
+meta_api = MetadataApi(username=config[&quot;username&quot;], 
+                password=config[&quot;password&quot;], 
+                security_token=config[&quot;security_token&quot;], 
+                sandbox=config[&quot;is_sandbox&quot;],
+                version=config[&quot;api_version&quot;]
+                )
+
+
+&quot;&quot;&quot;buildPackageXml&quot;&quot;&quot;
+packagexml = meta_api.buildPackageXml()
+</code></pre>
+
+<p>結果確認：</p>
+<pre><code class="xml">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
+&lt;Package xmlns=&quot;http://soap.sforce.com/2006/04/metadata&quot;&gt;
+
+    &lt;types&gt;
+        &lt;members&gt;*&lt;/members&gt;
+        &lt;name&gt;InstalledPackage&lt;/name&gt;
+    &lt;/types&gt;
+    &lt;types&gt;
+        &lt;members&gt;*&lt;/members&gt;
+        &lt;name&gt;CustomLabels&lt;/name&gt;
+    &lt;/types&gt;
+
+        ....................
+        ........省略.........
+        ....................
+    &lt;types&gt;
+        &lt;members&gt;Account&lt;/members&gt;
+        &lt;members&gt;AccountChangeEvent&lt;/members&gt;
+        &lt;members&gt;AccountCleanInfo&lt;/members&gt;
+        &lt;members&gt;AccountContactRole&lt;/members&gt;
+        &lt;members&gt;AccountFeed&lt;/members&gt;
+        &lt;members&gt;AccountHistory&lt;/members&gt;
+        &lt;members&gt;AccountPartner&lt;/members&gt;
+        &lt;members&gt;AccountShare&lt;/members&gt;
+        &lt;members&gt;ActionLinkGroupTemplate&lt;/members&gt;
+        &lt;members&gt;ActionLinkTemplate&lt;/members&gt;
+        &lt;members&gt;ActivityHistory&lt;/members&gt;
+        &lt;members&gt;AdditionalNumber&lt;/members&gt;
+        &lt;members&gt;AggregateResult&lt;/members&gt;
+        ....................
+        ........省略.........
+        ....................
+        &lt;name&gt;CustomObject&lt;/name&gt;
+    &lt;/types&gt;
+    &lt;types&gt;
+        &lt;members&gt;unfiled$public&lt;/members&gt;
+        ....................
+        ........省略.........
+        ....................
+        &lt;members&gt;unfiled$public/SupportCaseAssignmentNotification&lt;/members&gt;
+        &lt;members&gt;unfiled$public/SalesNewCustomerEmail&lt;/members&gt;
+        &lt;members&gt;unfiled$public/SupportCaseCreatedWebInquiries&lt;/members&gt;
+        &lt;members&gt;unfiled$public/SupportEscalatedCaseNotification&lt;/members&gt;
+        &lt;members&gt;unfiled$public/SupportSelfServiceResetPassword&lt;/members&gt;
+        &lt;members&gt;unfiled$public/MarketingProductInquiryResponse&lt;/members&gt;
+        &lt;members&gt;unfiled$public/SupportCaseCreatedPhoneInquiries&lt;/members&gt;
+        &lt;members&gt;unfiled$public/SUPPORTSelfServiceResetPasswordSAMPLE&lt;/members&gt;
+        &lt;members&gt;unfiled$public/SupportEscalatedCaseReassignment&lt;/members&gt;
+        &lt;members&gt;unfiled$public/SUPPORTSelfServiceNewCommentNotificationSAMPLE&lt;/members&gt;
+        &lt;name&gt;EmailTemplate&lt;/name&gt;
+    &lt;/types&gt;
+
+        ....................
+        ........省略.........
+        ....................
+    &lt;types&gt;
+        &lt;members&gt;*&lt;/members&gt;
+        &lt;name&gt;TopicsForObjects&lt;/name&gt;
+    &lt;/types&gt;
+    &lt;types&gt;
+        &lt;members&gt;*&lt;/members&gt;
+        &lt;name&gt;EmailServicesFunction&lt;/name&gt;
+    &lt;/types&gt;
+    &lt;types&gt;
+        &lt;members&gt;*&lt;/members&gt;
+        &lt;name&gt;Settings&lt;/name&gt;
+    &lt;/types&gt;
+    &lt;version&gt;42.0&lt;/version&gt;
+&lt;/Package&gt;
+
+
+</code></pre>
+
+<h1 id="sfdcpackage">SFDC組織からPackage関するリストを取得</h1>
+<pre><code class="python">&quot;&quot;&quot;packageTypeList&quot;&quot;&quot;
+print('&gt;&gt;&gt;packageTypeList')
+pprint.pprint(meta_api.packageTypeList())
+</code></pre>
+
+<p>結果確認</p>
+<pre><code class="json">
+[{'members': ['*'], 'name': 'InstalledPackage'},
+ {'members': ['*'], 'name': 'CustomLabels'},
+ {'members': ['*'], 'name': 'StaticResource'},
+         ....................
+        ........省略.........
+        ....................
+ {'members': ['*'], 'name': 'TopicsForObjects'},
+ {'members': ['*'], 'name': 'EmailServicesFunction'},
+ {'members': ['*'], 'name': 'Settings'}]
+
+</code></pre>
+              
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../011-sfdc-get-all-metadata-map/" class="btn btn-neutral float-right" title="SalesforceXyToolsCore/Python上ですべてのMetadataを情報を取得してみよう">Next <span class="icon icon-circle-arrow-right"></span></a>
+      
+      
+        <a href="../009-sfdc-describe-metadata/" class="btn btn-neutral" title="SalesforceXyToolsCore/Python上でSalesforce組織を説明するメタデータを取得する"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+  </div>
+
+  Built with <a href="http://www.mkdocs.org">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+      
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" style="cursor: pointer">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+      
+        <span><a href="../009-sfdc-describe-metadata/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+      
+      
+        <span style="margin-left: 15px"><a href="../011-sfdc-get-all-metadata-map/" style="color: #fcfcfc">Next &raquo;</a></span>
+      
+    </span>
+</div>
+    <script>var base_url = '../..';</script>
+    <script src="../../js/theme.js" defer></script>
+      <script src="../../search/main.js" defer></script>
+
+</body>
+</html>

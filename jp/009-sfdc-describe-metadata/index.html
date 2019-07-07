@@ -1,0 +1,778 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <meta name="author" content="Exia.Huang">
+  <link rel="shortcut icon" href="../../img/favicon.ico">
+  <title>SalesforceXyToolsCore/Python上でSalesforce組織を説明するメタデータを取得する - SalesforceXyToolsCore</title>
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+
+  <link rel="stylesheet" href="../../css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../css/theme_extra.css" type="text/css" />
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css">
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "SalesforceXyToolsCore/Python\u4e0a\u3067Salesforce\u7d44\u7e54\u3092\u8aac\u660e\u3059\u308b\u30e1\u30bf\u30c7\u30fc\u30bf\u3092\u53d6\u5f97\u3059\u308b";
+    var mkdocs_page_input_path = "jp\\009-sfdc-describe-metadata.md";
+    var mkdocs_page_url = "/SalesforceXyToolsCore/jp/009-sfdc-describe-metadata/";
+  </script>
+  
+  <script src="../../js/jquery-2.1.1.min.js" defer></script>
+  <script src="../../js/modernizr-2.8.3.min.js" defer></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script> 
+  
+  <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+      ga('create', 'UA-96193717-1', 'auto');
+      ga('send', 'pageview');
+  </script>
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+      <div class="wy-side-nav-search">
+        <a href="../.." class="icon icon-home"> SalesforceXyToolsCore</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+	<ul class="current">
+	  
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../..">SalesforcexytoolsCore</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">Jp</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../001-SalesforceXyToolsCore-Introduce/">SalesforcexytoolsCore Introduce</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../002-apexclass-curd/">SalesforceXyToolsCore/Python上でApexClassを作成・更新・削除</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../003-sobject-curd/">SalesforceXyToolsCore/Python上でSobjectを作成・更新・削除</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../004-sfdc-get-apexlog/">SalesforceXyToolsCore/Python上でApexログを取得</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../005-run-apexscript/">SalesforceXyToolsCore/Python上でApexScriptを実行する</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../006-run-soql-queries/">SalesforceXyToolsCore/Python上でSalesforce組織のSoqlを実行する</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../007-run-testclass/">SalesforceXyToolsCore/Python上でテストクラスを実行する</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../008-run-rest-api/">SalesforceXyToolsCore/Python上でSalesforceのREST APIへアクセス</a>
+                </li>
+                <li class=" current">
+                    
+    <a class="current" href="./">SalesforceXyToolsCore/Python上でSalesforce組織を説明するメタデータを取得する</a>
+    <ul class="subnav">
+            
+    <li class="toctree-l3"><a href="#topic">Topic</a></li>
+    
+
+    <li class="toctree-l3"><a href="#describemetadata">DescribeMetadataの実行</a></li>
+    
+        <ul>
+        
+            <li><a class="toctree-l4" href="#_1">結果確認</a></li>
+        
+        </ul>
+    
+
+    </ul>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../010-create-sfdc-package-xml/">SalesforceXyToolsCore/Python上でSalesforce組織からのPackage.xmlを作成</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../011-sfdc-get-all-metadata-map/">SalesforceXyToolsCore/Python上ですべてのMetadataを情報を取得してみよう</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../012-sfdc-list-folders/">SalesforceXyToolsCore/Python上でSalesforce組織のフォルダーを取得する</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../013-retrieve-all-metadata/">SalesforceXyToolsCore/Python上でたった3行でSalesforce組織からのメタデータの取得</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../014-download-attachments/">SalesforceXyToolsCore/Python上でSalesforce組織の添付ファイルを一括ダウンロードする</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../SalesforceXyToolsCore-Python-Library-For-salesforce/">SalesforcexytoolsCore, a python library for salesforce</a>
+                </li>
+    </ul>
+	    </li>
+          
+        </ul>
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../..">SalesforceXyToolsCore</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../..">Docs</a> &raquo;</li>
+    
+      
+        
+          <li>Jp &raquo;</li>
+        
+      
+    
+    <li>SalesforceXyToolsCore/Python上でSalesforce組織を説明するメタデータを取得する</li>
+    <li class="wy-breadcrumbs-aside">
+      
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <h1 id="topic">Topic</h1>
+<ul>
+<li><a href="http://salesforcexytools.com/categories/SalesforceXyToolsCore-JP/">SalesforceXyToolsCore</a>を使ってDescribeMetadataを実行して、DescribeMetadataを実行してSalesforce組織を説明するメタデータを取得します。この情報には Apex クラスおよびトリガ、カスタムオブジェクト、標準オブジェクトのカスタム項目、アプリケーションを定義するタブセット、および他の多くのメタデータ型が含まれています。</li>
+</ul>
+<h1 id="describemetadata">DescribeMetadataの実行</h1>
+<ul>
+<li>Salesforce組織のユーザ名、パスワード、Apiバージョン、Product/Sandboxを設定してください。</li>
+</ul>
+<pre><code class="python">from SalesforceXytoolsCore import *
+import pprint
+
+config = {
+    &quot;api_version&quot;: 42.0, 
+    &quot;username&quot;: &quot;sfdc username&quot;, 
+    &quot;password&quot;: &quot;sfdc password&quot;, 
+    &quot;security_token&quot;: &quot;&quot;, 
+    &quot;is_sandbox&quot;: True
+}
+
+meta_api = MetadataApi(username=config[&quot;username&quot;], 
+                password=config[&quot;password&quot;], 
+                security_token=config[&quot;security_token&quot;], 
+                sandbox=config[&quot;is_sandbox&quot;],
+                version=config[&quot;api_version&quot;]
+                )
+
+&quot;&quot;&quot;
+describeMetadata :
+    This call retrieves the metadata that describes your organization. 
+    This information includes Apex classes and triggers, custom objects, custom fields on standard objects, tab sets that define an app, and many other metadata types.
+&quot;&quot;&quot;
+result = meta_api.describeMetadata()
+pprint.pprint(result)
+# print(json.dumps(result, indent=4))
+</code></pre>
+
+<h2 id="_1">結果確認</h2>
+<pre><code class="json">OrderedDict([('metadataObjects',
+              [OrderedDict([('directoryName', 'installedPackages'),
+                            ('inFolder', 'false'),
+                            ('metaFile', 'false'),
+                            ('suffix', 'installedPackage'),
+                            ('xmlName', 'InstalledPackage')]),
+               OrderedDict([('childXmlNames', 'CustomLabel'),
+                            ('directoryName', 'labels'),
+                            ('inFolder', 'false'),
+                            ('metaFile', 'false'),
+                            ('suffix', 'labels'),
+                            ('xmlName', 'CustomLabels')]),
+               OrderedDict([('directoryName', 'staticresources'),
+                            ('inFolder', 'false'),
+                            ('metaFile', 'true'),
+                            ('suffix', 'resource'),
+                            ('xmlName', 'StaticResource')]),
+               OrderedDict([('directoryName', 'scontrols'),
+                            ('inFolder', 'false'),
+                            ('metaFile', 'true'),
+                            ('suffix', 'scf'),
+                            ('xmlName', 'Scontrol')]),
+               OrderedDict([('directoryName', 'certs'),
+                            ('inFolder', 'false'),
+                            ('metaFile', 'true'),
+                            ('suffix', 'crt'),
+                            ('xmlName', 'Certificate')]),
+               OrderedDict([('directoryName', 'aura'),
+                            ('inFolder', 'false'),
+                            ('metaFile', 'false'),
+                            ('xmlName', 'AuraDefinitionBundle')]),
+               OrderedDict([('directoryName', 'lightningcomponents'),
+                            ('inFolder', 'false'),
+                            ('metaFile', 'false'),
+                            ('xmlName', 'LightningComponentBundle')]),
+               OrderedDict([('directoryName', 'components'),
+                            ('inFolder', 'false'),
+                            ('metaFile', 'true'),
+                            ('suffix', 'component'),
+                            ('xmlName', 'ApexComponent')]),
+               OrderedDict([('directoryName', 'pages'),
+                            ('inFolder', 'false'),
+                            ('metaFile', 'true'),
+                            ('suffix', 'page'),
+                            ('xmlName', 'ApexPage')]),
+               OrderedDict([('directoryName', 'queues'),
+                            ('inFolder', 'false'),
+                            ('metaFile', 'false'),
+                            ('suffix', 'queue'),
+                            ('xmlName', 'Queue')]),
+               OrderedDict([('directoryName', 'CaseSubjectParticles'),
+                            ('inFolder', 'false'),
+                            ('metaFile', 'false'),
+                            ('suffix', 'CaseSubjectParticle'),
+                            ('xmlName', 'CaseSubjectParticle')]),
+               OrderedDict([('directoryName', 'dataSources'),
+                            ('inFolder', 'false'),
+                            ('metaFile', 'false'),
+                            ('suffix', 'dataSource'),
+                            ('xmlName', 'ExternalDataSource')]),
+               OrderedDict([('directoryName', 'namedCredentials'),
+                            ('inFolder', 'false'),
+                            ('metaFile', 'false'),
+                            ('suffix', 'namedCredential'),
+                            ('xmlName', 'NamedCredential')]),
+               OrderedDict([('directoryName', 'externalServiceRegistrations'),
+                            ('inFolder', 'false'),
+                            ('metaFile', 'false'),
+                            ('suffix', 'externalServiceRegistration'),
+                            ('xmlName', 'ExternalServiceRegistration')]),
+               OrderedDict([('directoryName', 'roles'),
+                            ('inFolder', 'false'),
+                            ('metaFile', 'false'),
+                            ('suffix', 'role'),
+                            ('xmlName', 'Role')]),
+               OrderedDict([('directoryName', 'groups'),
+                            ('inFolder', 'false'),
+                            ('metaFile', 'false'),
+                            ('suffix', 'group'),
+                            ('xmlName', 'Group')]),
+               OrderedDict([('directoryName', 'globalValueSets'),
+                            ('inFolder', 'false'),
+                            ('metaFile', 'false'),
+                            ('suffix', 'globalValueSet'),
+                            ('xmlName', 'GlobalValueSet')]),
+               OrderedDict([('directoryName', 'standardValueSets'),
+                            ('inFolder', 'false'),
+                            ('metaFile', 'false'),
+                            ('suffix', 'standardValueSet'),
+                            ('xmlName', 'StandardValueSet')]),
+               OrderedDict([('directoryName', 'customPermissions'),
+                            ('inFolder', 'false'),
+                            ('metaFile', 'false'),
+                            ('suffix', 'customPermission'),
+                            ('xmlName', 'CustomPermission')]),
+               OrderedDict([('childXmlNames',
+                             ['CustomField',
+                              'Index',
+                              'BusinessProcess',
+                              'CompactLayout',
+                              'RecordType',
+                              'WebLink',
+                              'ValidationRule',
+                              'SharingReason',
+                              'ListView',
+                              'FieldSet']),
+                            ('directoryName', 'objects'),
+                            ('inFolder', 'false'),
+                            ('metaFile', 'false'),
+                            ('suffix', 'object'),
+                            ('xmlName', 'CustomObject')]),
+               OrderedDict([('directoryName', 'reportTypes'),
+                            ('inFolder', 'false'),
+                            ('metaFile', 'false'),
+                            ('suffix', 'reportType'),
+                            ('xmlName', 'ReportType')]),
+               OrderedDict([('directoryName', 'reports'),
+                            ('inFolder', 'true'),
+                            ('metaFile', 'false'),
+                            ('suffix', 'report'),
+                            ('xmlName', 'Report')]),
+               OrderedDict([('directoryName', 'dashboards'),
+                            ('inFolder', 'true'),
+                            ('metaFile', 'false'),
+                            ('suffix', 'dashboard'),
+                            ('xmlName', 'Dashboard')]),
+               OrderedDict([('directoryName', 'analyticSnapshots'),
+                            ('inFolder', 'false'),
+                            ('metaFile', 'false'),
+                            ('suffix', 'snapshot'),
+                            ('xmlName', 'AnalyticSnapshot')]),
+               OrderedDict([('directoryName', 'feedFilters'),
+                            ('inFolder', 'false'),
+                            ('metaFile', 'false'),
+                            ('suffix', 'feedFilter'),
+                            ('xmlName', 'CustomFeedFilter')]),
+               OrderedDict([('directoryName', 'layouts'),
+                            ('inFolder', 'false'),
+                            ('metaFile', 'false'),
+                            ('suffix', 'layout'),
+                            ('xmlName', 'Layout')]),
+               OrderedDict([('directoryName', 'documents'),
+                            ('inFolder', 'true'),
+                            ('metaFile', 'true'),
+                            ('xmlName', 'Document')]),
+               OrderedDict([('directoryName', 'weblinks'),
+                            ('inFolder', 'false'),
+                            ('metaFile', 'false'),
+                            ('suffix', 'weblink'),
+                            ('xmlName', 'CustomPageWebLink')]),
+               OrderedDict([('directoryName', 'letterhead'),
+                            ('inFolder', 'false'),
+                            ('metaFile', 'false'),
+                            ('suffix', 'letter'),
+                            ('xmlName', 'Letterhead')]),
+               OrderedDict([('directoryName', 'email'),
+                            ('inFolder', 'true'),
+                            ('metaFile', 'true'),
+                            ('suffix', 'email'),
+                            ('xmlName', 'EmailTemplate')]),
+               OrderedDict([('directoryName', 'quickActions'),
+                            ('inFolder', 'false'),
+                            ('metaFile', 'false'),
+                            ('suffix', 'quickAction'),
+                            ('xmlName', 'QuickAction')]),
+               OrderedDict([('directoryName', 'flexipages'),
+                            ('inFolder', 'false'),
+                            ('metaFile', 'false'),
+                            ('suffix', 'flexipage'),
+                            ('xmlName', 'FlexiPage')]),
+               OrderedDict([('directoryName', 'tabs'),
+                            ('inFolder', 'false'),
+                            ('metaFile', 'false'),
+                            ('suffix', 'tab'),
+                            ('xmlName', 'CustomTab')]),
+               OrderedDict([('directoryName', 'customApplicationComponents'),
+                            ('inFolder', 'false'),
+                            ('metaFile', 'false'),
+                            ('suffix', 'customApplicationComponent'),
+                            ('xmlName', 'CustomApplicationComponent')]),
+               OrderedDict([('directoryName', 'applications'),
+                            ('inFolder', 'false'),
+                            ('metaFile', 'false'),
+                            ('suffix', 'app'),
+                            ('xmlName', 'CustomApplication')]),
+               OrderedDict([('directoryName', 'EmbeddedServiceConfig'),
+                            ('inFolder', 'false'),
+                            ('metaFile', 'false'),
+                            ('suffix', 'EmbeddedServiceConfig'),
+                            ('xmlName', 'EmbeddedServiceConfig')]),
+               OrderedDict([('directoryName', 'EmbeddedServiceBranding'),
+                            ('inFolder', 'false'),
+                            ('metaFile', 'false'),
+                            ('suffix', 'EmbeddedServiceBranding'),
+                            ('xmlName', 'EmbeddedServiceBranding')]),
+               OrderedDict([('directoryName', 'flows'),
+                            ('inFolder', 'false'),
+                            ('metaFile', 'false'),
+                            ('suffix', 'flow'),
+                            ('xmlName', 'Flow')]),
+               OrderedDict([('directoryName', 'flowDefinitions'),
+                            ('inFolder', 'false'),
+                            ('metaFile', 'false'),
+                            ('suffix', 'flowDefinition'),
+                            ('xmlName', 'FlowDefinition')]),
+               OrderedDict([('directoryName', 'eventSubscriptions'),
+                            ('inFolder', 'false'),
+                            ('metaFile', 'false'),
+                            ('suffix', 'subscription'),
+                            ('xmlName', 'EventSubscription')]),
+               OrderedDict([('directoryName', 'eventDeliveries'),
+                            ('inFolder', 'false'),
+                            ('metaFile', 'false'),
+                            ('suffix', 'delivery'),
+                            ('xmlName', 'EventDelivery')]),
+               OrderedDict([('childXmlNames',
+                             ['WorkflowFieldUpdate',
+                              'WorkflowKnowledgePublish',
+                              'WorkflowTask',
+                              'WorkflowAlert',
+                              'WorkflowSend',
+                              'WorkflowOutboundMessage',
+                              'WorkflowRule']),
+                            ('directoryName', 'workflows'),
+                            ('inFolder', 'false'),
+                            ('metaFile', 'false'),
+                            ('suffix', 'workflow'),
+                            ('xmlName', 'Workflow')]),
+               OrderedDict([('childXmlNames', 'AssignmentRule'),
+                            ('directoryName', 'assignmentRules'),
+                            ('inFolder', 'false'),
+                            ('metaFile', 'false'),
+                            ('suffix', 'assignmentRules'),
+                            ('xmlName', 'AssignmentRules')]),
+               OrderedDict([('childXmlNames', 'AutoResponseRule'),
+                            ('directoryName', 'autoResponseRules'),
+                            ('inFolder', 'false'),
+                            ('metaFile', 'false'),
+                            ('suffix', 'autoResponseRules'),
+                            ('xmlName', 'AutoResponseRules')]),
+               OrderedDict([('childXmlNames', 'EscalationRule'),
+                            ('directoryName', 'escalationRules'),
+                            ('inFolder', 'false'),
+                            ('metaFile', 'false'),
+                            ('suffix', 'escalationRules'),
+                            ('xmlName', 'EscalationRules')]),
+               OrderedDict([('directoryName', 'postTemplates'),
+                            ('inFolder', 'false'),
+                            ('metaFile', 'false'),
+                            ('suffix', 'postTemplate'),
+                            ('xmlName', 'PostTemplate')]),
+               OrderedDict([('directoryName', 'approvalProcesses'),
+                            ('inFolder', 'false'),
+                            ('metaFile', 'false'),
+                            ('suffix', 'approvalProcess'),
+                            ('xmlName', 'ApprovalProcess')]),
+               OrderedDict([('directoryName', 'homePageComponents'),
+                            ('inFolder', 'false'),
+                            ('metaFile', 'false'),
+                            ('suffix', 'homePageComponent'),
+                            ('xmlName', 'HomePageComponent')]),
+               OrderedDict([('directoryName', 'homePageLayouts'),
+                            ('inFolder', 'false'),
+                            ('metaFile', 'false'),
+                            ('suffix', 'homePageLayout'),
+                            ('xmlName', 'HomePageLayout')]),
+               OrderedDict([('directoryName', 'objectTranslations'),
+                            ('inFolder', 'false'),
+                            ('metaFile', 'false'),
+                            ('suffix', 'objectTranslation'),
+                            ('xmlName', 'CustomObjectTranslation')]),
+               OrderedDict([('directoryName', 'globalValueSetTranslations'),
+                            ('inFolder', 'false'),
+                            ('metaFile', 'false'),
+                            ('suffix', 'globalValueSetTranslation'),
+                            ('xmlName', 'GlobalValueSetTranslation')]),
+               OrderedDict([('directoryName', 'standardValueSetTranslations'),
+                            ('inFolder', 'false'),
+                            ('metaFile', 'false'),
+                            ('suffix', 'standardValueSetTranslation'),
+                            ('xmlName', 'StandardValueSetTranslation')]),
+               OrderedDict([('directoryName', 'classes'),
+                            ('inFolder', 'false'),
+                            ('metaFile', 'true'),
+                            ('suffix', 'cls'),
+                            ('xmlName', 'ApexClass')]),
+               OrderedDict([('directoryName', 'triggers'),
+                            ('inFolder', 'false'),
+                            ('metaFile', 'true'),
+                            ('suffix', 'trigger'),
+                            ('xmlName', 'ApexTrigger')]),
+               OrderedDict([('directoryName', 'testSuites'),
+                            ('inFolder', 'false'),
+                            ('metaFile', 'false'),
+                            ('suffix', 'testSuite'),
+                            ('xmlName', 'ApexTestSuite')]),
+               OrderedDict([('directoryName', 'profiles'),
+                            ('inFolder', 'false'),
+                            ('metaFile', 'false'),
+                            ('suffix', 'profile'),
+                            ('xmlName', 'Profile')]),
+               OrderedDict([('directoryName', 'permissionsets'),
+                            ('inFolder', 'false'),
+                            ('metaFile', 'false'),
+                            ('suffix', 'permissionset'),
+                            ('xmlName', 'PermissionSet')]),
+               OrderedDict([('directoryName', 'customMetadata'),
+                            ('inFolder', 'false'),
+                            ('metaFile', 'false'),
+                            ('suffix', 'md'),
+                            ('xmlName', 'CustomMetadata')]),
+               OrderedDict([('directoryName', 'profilePasswordPolicies'),
+                            ('inFolder', 'false'),
+                            ('metaFile', 'false'),
+                            ('suffix', 'profilePasswordPolicy'),
+                            ('xmlName', 'ProfilePasswordPolicy')]),
+               OrderedDict([('directoryName', 'profileSessionSettings'),
+                            ('inFolder', 'false'),
+                            ('metaFile', 'false'),
+                            ('suffix', 'profileSessionSetting'),
+                            ('xmlName', 'ProfileSessionSetting')]),
+               OrderedDict([('directoryName', 'datacategorygroups'),
+                            ('inFolder', 'false'),
+                            ('metaFile', 'false'),
+                            ('suffix', 'datacategorygroup'),
+                            ('xmlName', 'DataCategoryGroup')]),
+               OrderedDict([('directoryName', 'remoteSiteSettings'),
+                            ('inFolder', 'false'),
+                            ('metaFile', 'false'),
+                            ('suffix', 'remoteSite'),
+                            ('xmlName', 'RemoteSiteSetting')]),
+               OrderedDict([('directoryName', 'cspTrustedSites'),
+                            ('inFolder', 'false'),
+                            ('metaFile', 'false'),
+                            ('suffix', 'cspTrustedSite'),
+                            ('xmlName', 'CspTrustedSite')]),
+               OrderedDict([('childXmlNames', 'MatchingRule'),
+                            ('directoryName', 'matchingRules'),
+                            ('inFolder', 'false'),
+                            ('metaFile', 'false'),
+                            ('suffix', 'matchingRule'),
+                            ('xmlName', 'MatchingRules')]),
+               OrderedDict([('directoryName', 'duplicateRules'),
+                            ('inFolder', 'false'),
+                            ('metaFile', 'false'),
+                            ('suffix', 'duplicateRule'),
+                            ('xmlName', 'DuplicateRule')]),
+               OrderedDict([('directoryName', 'cleanDataServices'),
+                            ('inFolder', 'false'),
+                            ('metaFile', 'false'),
+                            ('suffix', 'cleanDataService'),
+                            ('xmlName', 'CleanDataService')]),
+               OrderedDict([('directoryName', 'authproviders'),
+                            ('inFolder', 'false'),
+                            ('metaFile', 'false'),
+                            ('suffix', 'authprovider'),
+                            ('xmlName', 'AuthProvider')]),
+               OrderedDict([('directoryName', 'eclair'),
+                            ('inFolder', 'false'),
+                            ('metaFile', 'true'),
+                            ('suffix', 'geodata'),
+                            ('xmlName', 'EclairGeoData')]),
+               OrderedDict([('directoryName', 'sites'),
+                            ('inFolder', 'false'),
+                            ('metaFile', 'false'),
+                            ('suffix', 'site'),
+                            ('xmlName', 'CustomSite')]),
+               OrderedDict([('directoryName', 'channelLayouts'),
+                            ('inFolder', 'false'),
+                            ('metaFile', 'false'),
+                            ('suffix', 'channelLayout'),
+                            ('xmlName', 'ChannelLayout')]),
+               OrderedDict([('directoryName', 'contentassets'),
+                            ('inFolder', 'false'),
+                            ('metaFile', 'true'),
+                            ('suffix', 'asset'),
+                            ('xmlName', 'ContentAsset')]),
+               OrderedDict([('childXmlNames',
+                             ['SharingOwnerRule', 'SharingCriteriaRule']),
+                            ('directoryName', 'sharingRules'),
+                            ('inFolder', 'false'),
+                            ('metaFile', 'false'),
+                            ('suffix', 'sharingRules'),
+                            ('xmlName', 'SharingRules')]),
+               OrderedDict([('directoryName', 'sharingSets'),
+                            ('inFolder', 'false'),
+                            ('metaFile', 'false'),
+                            ('suffix', 'sharingSet'),
+                            ('xmlName', 'SharingSet')]),
+               OrderedDict([('directoryName', 'communities'),
+                            ('inFolder', 'false'),
+                            ('metaFile', 'false'),
+                            ('suffix', 'community'),
+                            ('xmlName', 'Community')]),
+               OrderedDict([('directoryName', 'ChatterExtensions'),
+                            ('inFolder', 'false'),
+                            ('metaFile', 'false'),
+                            ('suffix', 'ChatterExtension'),
+                            ('xmlName', 'ChatterExtension')]),
+               OrderedDict([('directoryName', 'callCenters'),
+                            ('inFolder', 'false'),
+                            ('metaFile', 'false'),
+                            ('suffix', 'callCenter'),
+                            ('xmlName', 'CallCenter')]),
+               OrderedDict([('directoryName', 'connectedApps'),
+                            ('inFolder', 'false'),
+                            ('metaFile', 'false'),
+                            ('suffix', 'connectedApp'),
+                            ('xmlName', 'ConnectedApp')]),
+               OrderedDict([('directoryName', 'appMenus'),
+                            ('inFolder', 'false'),
+                            ('metaFile', 'false'),
+                            ('suffix', 'appMenu'),
+                            ('xmlName', 'AppMenu')]),
+               OrderedDict([('directoryName', 'delegateGroups'),
+                            ('inFolder', 'false'),
+                            ('metaFile', 'false'),
+                            ('suffix', 'delegateGroup'),
+                            ('xmlName', 'DelegateGroup')]),
+               OrderedDict([('directoryName', 'siteDotComSites'),
+                            ('inFolder', 'false'),
+                            ('metaFile', 'true'),
+                            ('suffix', 'site'),
+                            ('xmlName', 'SiteDotCom')]),
+               OrderedDict([('directoryName', 'networkBranding'),
+                            ('inFolder', 'false'),
+                            ('metaFile', 'true'),
+                            ('suffix', 'networkBranding'),
+                            ('xmlName', 'NetworkBranding')]),
+               OrderedDict([('directoryName', 'brandingSets'),
+                            ('inFolder', 'false'),
+                            ('metaFile', 'false'),
+                            ('suffix', 'brandingSet'),
+                            ('xmlName', 'BrandingSet')]),
+               OrderedDict([('directoryName', 'flowCategories'),
+                            ('inFolder', 'false'),
+                            ('metaFile', 'false'),
+                            ('suffix', 'flowCategory'),
+                            ('xmlName', 'FlowCategory')]),
+               OrderedDict([('directoryName', 'lightningBolts'),
+                            ('inFolder', 'false'),
+                            ('metaFile', 'false'),
+                            ('suffix', 'lightningBolt'),
+                            ('xmlName', 'LightningBolt')]),
+               OrderedDict([('directoryName', 'lightningExperienceThemes'),
+                            ('inFolder', 'false'),
+                            ('metaFile', 'false'),
+                            ('suffix', 'lightningExperienceTheme'),
+                            ('xmlName', 'LightningExperienceTheme')]),
+               OrderedDict([('directoryName', 'samlssoconfigs'),
+                            ('inFolder', 'false'),
+                            ('metaFile', 'false'),
+                            ('suffix', 'samlssoconfig'),
+                            ('xmlName', 'SamlSsoConfig')]),
+               OrderedDict([('directoryName', 'corsWhitelistOrigins'),
+                            ('inFolder', 'false'),
+                            ('metaFile', 'false'),
+                            ('suffix', 'corsWhitelistOrigin'),
+                            ('xmlName', 'CorsWhitelistOrigin')]),
+               OrderedDict([('directoryName', 'actionLinkGroupTemplates'),
+                            ('inFolder', 'false'),
+                            ('metaFile', 'false'),
+                            ('suffix', 'actionLinkGroupTemplate'),
+                            ('xmlName', 'ActionLinkGroupTemplate')]),
+               OrderedDict([('directoryName', 'transactionSecurityPolicies'),
+                            ('inFolder', 'false'),
+                            ('metaFile', 'false'),
+                            ('suffix', 'transactionSecurityPolicy'),
+                            ('xmlName', 'TransactionSecurityPolicy')]),
+               OrderedDict([('directoryName', 'synonymDictionaries'),
+                            ('inFolder', 'false'),
+                            ('metaFile', 'false'),
+                            ('suffix', 'synonymDictionary'),
+                            ('xmlName', 'SynonymDictionary')]),
+               OrderedDict([('directoryName', 'pathAssistants'),
+                            ('inFolder', 'false'),
+                            ('metaFile', 'false'),
+                            ('suffix', 'pathAssistant'),
+                            ('xmlName', 'PathAssistant')]),
+               OrderedDict([('directoryName', 'LeadConvertSettings'),
+                            ('inFolder', 'false'),
+                            ('metaFile', 'false'),
+                            ('suffix', 'LeadConvertSetting'),
+                            ('xmlName', 'LeadConvertSettings')]),
+               OrderedDict([('directoryName', 'cachePartitions'),
+                            ('inFolder', 'false'),
+                            ('metaFile', 'false'),
+                            ('suffix', 'cachePartition'),
+                            ('xmlName', 'PlatformCachePartition')]),
+               OrderedDict([('directoryName', 'topicsForObjects'),
+                            ('inFolder', 'false'),
+                            ('metaFile', 'false'),
+                            ('suffix', 'topicsForObjects'),
+                            ('xmlName', 'TopicsForObjects')]),
+               OrderedDict([('directoryName', 'emailservices'),
+                            ('inFolder', 'false'),
+                            ('metaFile', 'false'),
+                            ('suffix', 'xml'),
+                            ('xmlName', 'EmailServicesFunction')]),
+               OrderedDict([('directoryName', 'settings'),
+                            ('inFolder', 'false'),
+                            ('metaFile', 'false'),
+                            ('suffix', 'settings'),
+                            ('xmlName', 'Settings')])]),
+             ('organizationNamespace', None),
+             ('partialSaveAllowed', 'true'),
+             ('testRequired', 'false')])
+
+</code></pre>
+              
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../010-create-sfdc-package-xml/" class="btn btn-neutral float-right" title="SalesforceXyToolsCore/Python上でSalesforce組織からのPackage.xmlを作成">Next <span class="icon icon-circle-arrow-right"></span></a>
+      
+      
+        <a href="../008-run-rest-api/" class="btn btn-neutral" title="SalesforceXyToolsCore/Python上でSalesforceのREST APIへアクセス"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+  </div>
+
+  Built with <a href="http://www.mkdocs.org">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+      
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" style="cursor: pointer">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+      
+        <span><a href="../008-run-rest-api/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+      
+      
+        <span style="margin-left: 15px"><a href="../010-create-sfdc-package-xml/" style="color: #fcfcfc">Next &raquo;</a></span>
+      
+    </span>
+</div>
+    <script>var base_url = '../..';</script>
+    <script src="../../js/theme.js" defer></script>
+      <script src="../../search/main.js" defer></script>
+
+</body>
+</html>

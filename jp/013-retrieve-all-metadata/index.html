@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <meta name="author" content="Exia.Huang">
+  <link rel="shortcut icon" href="../../img/favicon.ico">
+  <title>SalesforceXyToolsCore/Python上でたった3行でSalesforce組織からのメタデータの取得 - SalesforceXyToolsCore</title>
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+
+  <link rel="stylesheet" href="../../css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../css/theme_extra.css" type="text/css" />
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css">
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "SalesforceXyToolsCore/Python\u4e0a\u3067\u305f\u3063\u305f3\u884c\u3067Salesforce\u7d44\u7e54\u304b\u3089\u306e\u30e1\u30bf\u30c7\u30fc\u30bf\u306e\u53d6\u5f97";
+    var mkdocs_page_input_path = "jp\\013-retrieve-all-metadata.md";
+    var mkdocs_page_url = "/SalesforceXyToolsCore/jp/013-retrieve-all-metadata/";
+  </script>
+  
+  <script src="../../js/jquery-2.1.1.min.js" defer></script>
+  <script src="../../js/modernizr-2.8.3.min.js" defer></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script> 
+  
+  <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+      ga('create', 'UA-96193717-1', 'auto');
+      ga('send', 'pageview');
+  </script>
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+      <div class="wy-side-nav-search">
+        <a href="../.." class="icon icon-home"> SalesforceXyToolsCore</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+	<ul class="current">
+	  
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../..">SalesforcexytoolsCore</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">Jp</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../001-SalesforceXyToolsCore-Introduce/">SalesforcexytoolsCore Introduce</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../002-apexclass-curd/">SalesforceXyToolsCore/Python上でApexClassを作成・更新・削除</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../003-sobject-curd/">SalesforceXyToolsCore/Python上でSobjectを作成・更新・削除</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../004-sfdc-get-apexlog/">SalesforceXyToolsCore/Python上でApexログを取得</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../005-run-apexscript/">SalesforceXyToolsCore/Python上でApexScriptを実行する</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../006-run-soql-queries/">SalesforceXyToolsCore/Python上でSalesforce組織のSoqlを実行する</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../007-run-testclass/">SalesforceXyToolsCore/Python上でテストクラスを実行する</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../008-run-rest-api/">SalesforceXyToolsCore/Python上でSalesforceのREST APIへアクセス</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../009-sfdc-describe-metadata/">SalesforceXyToolsCore/Python上でSalesforce組織を説明するメタデータを取得する</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../010-create-sfdc-package-xml/">SalesforceXyToolsCore/Python上でSalesforce組織からのPackage.xmlを作成</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../011-sfdc-get-all-metadata-map/">SalesforceXyToolsCore/Python上ですべてのMetadataを情報を取得してみよう</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../012-sfdc-list-folders/">SalesforceXyToolsCore/Python上でSalesforce組織のフォルダーを取得する</a>
+                </li>
+                <li class=" current">
+                    
+    <a class="current" href="./">SalesforceXyToolsCore/Python上でたった3行でSalesforce組織からのメタデータの取得</a>
+    <ul class="subnav">
+            
+    <li class="toctree-l3"><a href="#topic">Topic</a></li>
+    
+
+    <li class="toctree-l3"><a href="#_1">メリット</a></li>
+    
+
+    <li class="toctree-l3"><a href="#salesforce">Salesforce組織からのメタデータの取得</a></li>
+    
+
+    <li class="toctree-l3"><a href="#_2">分析</a></li>
+    
+        <ul>
+        
+            <li><a class="toctree-l4" href="#_3">メタデータ取得ロジック</a></li>
+        
+            <li><a class="toctree-l4" href="#retrieve">retrieveタスクを開始</a></li>
+        
+            <li><a class="toctree-l4" href="#retrieve_1">retrieveの状況を確認</a></li>
+        
+        </ul>
+    
+
+    </ul>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../014-download-attachments/">SalesforceXyToolsCore/Python上でSalesforce組織の添付ファイルを一括ダウンロードする</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../SalesforceXyToolsCore-Python-Library-For-salesforce/">SalesforcexytoolsCore, a python library for salesforce</a>
+                </li>
+    </ul>
+	    </li>
+          
+        </ul>
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../..">SalesforceXyToolsCore</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../..">Docs</a> &raquo;</li>
+    
+      
+        
+          <li>Jp &raquo;</li>
+        
+      
+    
+    <li>SalesforceXyToolsCore/Python上でたった3行でSalesforce組織からのメタデータの取得</li>
+    <li class="wy-breadcrumbs-aside">
+      
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <h1 id="topic">Topic</h1>
+<ul>
+<li><a href="http://salesforcexytools.com/categories/SalesforceXyToolsCore-JP/">SalesforceXyToolsCore</a>を使ってSalesforce組織からのメタデータの取得</li>
+</ul>
+<h1 id="_1">メリット</h1>
+<ul>
+<li>package.xml配置不要、動的に生成</li>
+<li>すべてのSalesforce組織からのメタデータ一括で取得</li>
+</ul>
+<h1 id="salesforce">Salesforce組織からのメタデータの取得</h1>
+<p>Salesforce組織のユーザ名、パスワード、Apiバージョン、Product/Sandboxを設定してください。</p>
+<pre><code class="python">from SalesforceXytoolsCore import *
+import pprint
+
+config = {
+    &quot;api_version&quot;: 42.0, 
+    &quot;username&quot;: &quot;sfdc username&quot;, 
+    &quot;password&quot;: &quot;sfdc password&quot;, 
+    &quot;security_token&quot;: &quot;&quot;, 
+    &quot;is_sandbox&quot;: True
+}
+
+meta_api = MetadataApi(username=config[&quot;username&quot;], 
+                password=config[&quot;password&quot;], 
+                security_token=config[&quot;security_token&quot;], 
+                sandbox=config[&quot;is_sandbox&quot;],
+                version=config[&quot;api_version&quot;]
+                )
+
+
+&quot;&quot;&quot;retrieve zip file&quot;&quot;&quot;
+meta_api.retrieveZip(&quot;./save_dir&quot;,&quot;metadata-retrieve.zip&quot;)
+</code></pre>
+
+<p>結果確認：</p>
+<pre><code>ls ./save_dir
+</code></pre>
+
+<h1 id="_2">分析</h1>
+<h2 id="_3">メタデータ取得ロジック</h2>
+<ol>
+<li>retrieve() コールを発行し、非同期的な取得を開始すると、<a href="https://developer.salesforce.com/docs/atlas.ja-jp.api_meta.meta/api_meta/meta_asyncresult.htm">AsyncResult</a> オブジェクトが返されます。<a href="https://developer.salesforce.com/docs/atlas.ja-jp.api_meta.meta/api_meta/meta_asyncresult.htm#async_result_id">id</a> 項目の値をメモし、次のステップで使用します。</li>
+<li><a href="https://developer.salesforce.com/docs/atlas.ja-jp.api_meta.meta/api_meta/meta_checkretrievestatus.htm">checkRetrieveStatus()</a> コールを発行して、最初のステップの <a href="https://developer.salesforce.com/docs/atlas.ja-jp.api_meta.meta/api_meta/meta_asyncresult.htm">AsyncResult</a> オブジェクトから <a href="https://developer.salesforce.com/docs/atlas.ja-jp.api_meta.meta/api_meta/meta_asyncresult.htm#async_result_id">id</a> 値を渡します。返された <a href="https://developer.salesforce.com/docs/atlas.ja-jp.api_meta.meta/api_meta/meta_retrieveresult.htm#meta_retrieveresult">RetrieveResult</a> の <a href="https://developer.salesforce.com/docs/atlas.ja-jp.api_meta.meta/api_meta/meta_retrieveresult.htm#retrieveresult_done">done</a> 項目の値をチェックします。true の場合、コールが完了して、次のステップに進むことを意味します。それ以外の場合は、<a href="https://developer.salesforce.com/docs/atlas.ja-jp.api_meta.meta/api_meta/meta_retrieveresult.htm#retrieveresult_done">done</a> 項目が true になるまで、このステップを繰り返して <a href="https://developer.salesforce.com/docs/atlas.ja-jp.api_meta.meta/api_meta/meta_checkretrievestatus.htm">checkRetrieveStatus()</a> を再度コールします。</li>
+<li>前のステップの <a href="https://developer.salesforce.com/docs/atlas.ja-jp.api_meta.meta/api_meta/meta_checkretrievestatus.htm">checkRetrieveStatus()</a> への最後のコールで返された <a href="https://developer.salesforce.com/docs/atlas.ja-jp.api_meta.meta/api_meta/meta_retrieveresult.htm#meta_retrieveresult">RetrieveResult</a> から zip ファイル (<a href="https://developer.salesforce.com/docs/atlas.ja-jp.api_meta.meta/api_meta/meta_retrieveresult.htm#retrieveResult_zipFile">zipFile</a> 項目) および他の必要な項目を取得します。</li>
+</ol>
+<h2 id="retrieve">retrieveタスクを開始</h2>
+<p>タスクを発行する</p>
+<pre><code class="python">&quot;&quot;&quot;retrieve&quot;&quot;&quot;
+result = meta_api.startRetrieve()
+pprint.pprint(result)
+# print(result[&quot;done&quot;])
+# print(result[&quot;id&quot;])
+# print(result[&quot;state&quot;])
+
+</code></pre>
+
+<h2 id="retrieve_1">retrieveの状況を確認</h2>
+<p>宣言的なメタデータコール retrieve() の状況を確認し、zip ファイルの内容を返します。</p>
+<pre><code>&quot;&quot;&quot;checkRetrieveStatus&quot;&quot;&quot;
+retrieve_id = result[&quot;id&quot;]
+check_result = meta_api.checkRetrieveStatus(retrieve_id)
+pprint.pprint(check_result)
+
+</code></pre>
+              
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../014-download-attachments/" class="btn btn-neutral float-right" title="SalesforceXyToolsCore/Python上でSalesforce組織の添付ファイルを一括ダウンロードする">Next <span class="icon icon-circle-arrow-right"></span></a>
+      
+      
+        <a href="../012-sfdc-list-folders/" class="btn btn-neutral" title="SalesforceXyToolsCore/Python上でSalesforce組織のフォルダーを取得する"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+  </div>
+
+  Built with <a href="http://www.mkdocs.org">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+      
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" style="cursor: pointer">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+      
+        <span><a href="../012-sfdc-list-folders/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+      
+      
+        <span style="margin-left: 15px"><a href="../014-download-attachments/" style="color: #fcfcfc">Next &raquo;</a></span>
+      
+    </span>
+</div>
+    <script>var base_url = '../..';</script>
+    <script src="../../js/theme.js" defer></script>
+      <script src="../../search/main.js" defer></script>
+
+</body>
+</html>

@@ -1,0 +1,2174 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <meta name="author" content="Exia.Huang">
+  <link rel="shortcut icon" href="../../img/favicon.ico">
+  <title>SalesforcexytoolsCore, a python library for salesforce - SalesforceXyToolsCore</title>
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+
+  <link rel="stylesheet" href="../../css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../css/theme_extra.css" type="text/css" />
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css">
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "SalesforcexytoolsCore, a python library for salesforce";
+    var mkdocs_page_input_path = "jp\\SalesforceXyToolsCore-Python-Library-For-salesforce.md";
+    var mkdocs_page_url = "/SalesforceXyToolsCore/jp/SalesforceXyToolsCore-Python-Library-For-salesforce/";
+  </script>
+  
+  <script src="../../js/jquery-2.1.1.min.js" defer></script>
+  <script src="../../js/modernizr-2.8.3.min.js" defer></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script> 
+  
+  <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+      ga('create', 'UA-96193717-1', 'auto');
+      ga('send', 'pageview');
+  </script>
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+      <div class="wy-side-nav-search">
+        <a href="../.." class="icon icon-home"> SalesforceXyToolsCore</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+	<ul class="current">
+	  
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../..">SalesforcexytoolsCore</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">Jp</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../001-SalesforceXyToolsCore-Introduce/">SalesforcexytoolsCore Introduce</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../002-apexclass-curd/">SalesforceXyToolsCore/Python上でApexClassを作成・更新・削除</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../003-sobject-curd/">SalesforceXyToolsCore/Python上でSobjectを作成・更新・削除</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../004-sfdc-get-apexlog/">SalesforceXyToolsCore/Python上でApexログを取得</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../005-run-apexscript/">SalesforceXyToolsCore/Python上でApexScriptを実行する</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../006-run-soql-queries/">SalesforceXyToolsCore/Python上でSalesforce組織のSoqlを実行する</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../007-run-testclass/">SalesforceXyToolsCore/Python上でテストクラスを実行する</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../008-run-rest-api/">SalesforceXyToolsCore/Python上でSalesforceのREST APIへアクセス</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../009-sfdc-describe-metadata/">SalesforceXyToolsCore/Python上でSalesforce組織を説明するメタデータを取得する</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../010-create-sfdc-package-xml/">SalesforceXyToolsCore/Python上でSalesforce組織からのPackage.xmlを作成</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../011-sfdc-get-all-metadata-map/">SalesforceXyToolsCore/Python上ですべてのMetadataを情報を取得してみよう</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../012-sfdc-list-folders/">SalesforceXyToolsCore/Python上でSalesforce組織のフォルダーを取得する</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../013-retrieve-all-metadata/">SalesforceXyToolsCore/Python上でたった3行でSalesforce組織からのメタデータの取得</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../014-download-attachments/">SalesforceXyToolsCore/Python上でSalesforce組織の添付ファイルを一括ダウンロードする</a>
+                </li>
+                <li class=" current">
+                    
+    <a class="current" href="./">SalesforcexytoolsCore, a python library for salesforce</a>
+    <ul class="subnav">
+            
+    <li class="toctree-l3"><a href="#salesforcexytoolscore">SalesforcexytoolsCore</a></li>
+    
+        <ul>
+        
+            <li><a class="toctree-l4" href="#introduce">Introduce</a></li>
+        
+            <li><a class="toctree-l4" href="#requirement">Requirement</a></li>
+        
+            <li><a class="toctree-l4" href="#install">Install</a></li>
+        
+            <li><a class="toctree-l4" href="#document">Document</a></li>
+        
+            <li><a class="toctree-l4" href="#download-pdf">Download PDF</a></li>
+        
+            <li><a class="toctree-l4" href="#about-author-exiahuang">About Author : Exia.Huang</a></li>
+        
+            <li><a class="toctree-l4" href="#sample-source">Sample Source</a></li>
+        
+        </ul>
+    
+
+    <li class="toctree-l3"><a href="#salesforcexytoolscorepythonapexclass">SalesforceXyToolsCore/Python上でApexClassを作成・更新・削除</a></li>
+    
+        <ul>
+        
+            <li><a class="toctree-l4" href="#topic">Topic</a></li>
+        
+            <li><a class="toctree-l4" href="#apexclass">ApexClassの作成</a></li>
+        
+            <li><a class="toctree-l4" href="#apexclass_1">ApexClassの更新</a></li>
+        
+            <li><a class="toctree-l4" href="#apexclass_2">ApexClassの削除</a></li>
+        
+            <li><a class="toctree-l4" href="#_1">その他</a></li>
+        
+        </ul>
+    
+
+    <li class="toctree-l3"><a href="#salesforcexytoolscorepythonsobject">SalesforceXyToolsCore/Python上でSobjectを作成・更新・削除</a></li>
+    
+        <ul>
+        
+            <li><a class="toctree-l4" href="#topic_1">Topic</a></li>
+        
+            <li><a class="toctree-l4" href="#idsobject">IDでSobjectの取得</a></li>
+        
+            <li><a class="toctree-l4" href="#sobject">外部キーでSobjectの取得</a></li>
+        
+            <li><a class="toctree-l4" href="#idsobject_1">IDでSobjectの更新</a></li>
+        
+            <li><a class="toctree-l4" href="#idsobject_2">IDでSobjectの削除</a></li>
+        
+        </ul>
+    
+
+    <li class="toctree-l3"><a href="#salesforcexytoolscorepythonapex">SalesforceXyToolsCore/Python上でApexログを取得</a></li>
+    
+        <ul>
+        
+            <li><a class="toctree-l4" href="#topic_2">Topic</a></li>
+        
+            <li><a class="toctree-l4" href="#apex">Apexログを取得</a></li>
+        
+        </ul>
+    
+
+    <li class="toctree-l3"><a href="#salesforcexytoolscorepythonapexscript">SalesforceXyToolsCore/Python上でApexScriptを実行する</a></li>
+    
+        <ul>
+        
+            <li><a class="toctree-l4" href="#topic_3">Topic</a></li>
+        
+            <li><a class="toctree-l4" href="#apexscript">ApexScriptを実行する</a></li>
+        
+        </ul>
+    
+
+    <li class="toctree-l3"><a href="#salesforcexytoolscorepythonsalesforcesoql">SalesforceXyToolsCore/Python上でSalesforce組織のSoqlを実行する</a></li>
+    
+        <ul>
+        
+            <li><a class="toctree-l4" href="#topic_4">Topic</a></li>
+        
+            <li><a class="toctree-l4" href="#_3">メールテンプレートのフォルダーを取得する</a></li>
+        
+            <li><a class="toctree-l4" href="#_5">その他方法</a></li>
+        
+        </ul>
+    
+
+    <li class="toctree-l3"><a href="#salesforcexytoolscorepython">SalesforceXyToolsCore/Python上でテストクラスを実行する</a></li>
+    
+        <ul>
+        
+            <li><a class="toctree-l4" href="#topic_5">Topic</a></li>
+        
+            <li><a class="toctree-l4" href="#_6">テストクラスを実行する</a></li>
+        
+        </ul>
+    
+
+    <li class="toctree-l3"><a href="#salesforcexytoolscorepythonsalesforcerest-api">SalesforceXyToolsCore/Python上でSalesforceのREST APIへアクセス</a></li>
+    
+        <ul>
+        
+            <li><a class="toctree-l4" href="#topic_6">Topic</a></li>
+        
+            <li><a class="toctree-l4" href="#apexclass_3">Apexclass内容を取得する</a></li>
+        
+            <li><a class="toctree-l4" href="#apexcodecoverage">ApexCodeCoverageカバー率を取得する</a></li>
+        
+            <li><a class="toctree-l4" href="#sobjects">Sobjects一覧を取得する</a></li>
+        
+        </ul>
+    
+
+    <li class="toctree-l3"><a href="#salesforcexytoolscorepythonsalesforce">SalesforceXyToolsCore/Python上でSalesforce組織を説明するメタデータを取得する</a></li>
+    
+        <ul>
+        
+            <li><a class="toctree-l4" href="#topic_7">Topic</a></li>
+        
+            <li><a class="toctree-l4" href="#describemetadata">DescribeMetadataの実行</a></li>
+        
+        </ul>
+    
+
+    <li class="toctree-l3"><a href="#salesforcexytoolscorepythonsalesforcepackagexml">SalesforceXyToolsCore/Python上でSalesforce組織からのPackage.xmlを作成</a></li>
+    
+        <ul>
+        
+            <li><a class="toctree-l4" href="#topic_8">Topic</a></li>
+        
+            <li><a class="toctree-l4" href="#packagexml">Package.xmlの作成</a></li>
+        
+            <li><a class="toctree-l4" href="#sfdcpackage">SFDC組織からPackage関するリストを取得</a></li>
+        
+        </ul>
+    
+
+    <li class="toctree-l3"><a href="#salesforcexytoolscorepythonmetadata">SalesforceXyToolsCore/Python上ですべてのMetadataを情報を取得してみよう</a></li>
+    
+        <ul>
+        
+            <li><a class="toctree-l4" href="#topic_9">Topic</a></li>
+        
+            <li><a class="toctree-l4" href="#metadata">すべてのMetadataを情報を取得する</a></li>
+        
+            <li><a class="toctree-l4" href="#metadata_1">Metadataのリストを取得したい場合</a></li>
+        
+            <li><a class="toctree-l4" href="#_9">指定したメタデータを取得する</a></li>
+        
+        </ul>
+    
+
+    <li class="toctree-l3"><a href="#salesforcexytoolscorepythonsalesforce_1">SalesforceXyToolsCore/Python上でSalesforce組織のフォルダーを取得する</a></li>
+    
+        <ul>
+        
+            <li><a class="toctree-l4" href="#topic_10">Topic</a></li>
+        
+            <li><a class="toctree-l4" href="#_10">メールテンプレートのフォルダーを取得する</a></li>
+        
+            <li><a class="toctree-l4" href="#_12">その以外のフォルダー</a></li>
+        
+        </ul>
+    
+
+    <li class="toctree-l3"><a href="#salesforcexytoolscorepython3salesforce">SalesforceXyToolsCore/Python上でたった3行でSalesforce組織からのメタデータの取得</a></li>
+    
+        <ul>
+        
+            <li><a class="toctree-l4" href="#topic_11">Topic</a></li>
+        
+            <li><a class="toctree-l4" href="#_13">メリット</a></li>
+        
+            <li><a class="toctree-l4" href="#salesforce">Salesforce組織からのメタデータの取得</a></li>
+        
+            <li><a class="toctree-l4" href="#_14">分析</a></li>
+        
+        </ul>
+    
+
+    <li class="toctree-l3"><a href="#salesforcexytoolscorepythonsalesforce_2">SalesforceXyToolsCore/Python上でSalesforce組織の添付ファイルを一括ダウンロードする</a></li>
+    
+        <ul>
+        
+            <li><a class="toctree-l4" href="#topic_12">Topic</a></li>
+        
+            <li><a class="toctree-l4" href="#attachment">Attachment</a></li>
+        
+            <li><a class="toctree-l4" href="#salesforce_1">Salesforce組織の添付ファイルを一括ダウンロードする</a></li>
+        
+        </ul>
+    
+
+    </ul>
+                </li>
+    </ul>
+	    </li>
+          
+        </ul>
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../..">SalesforceXyToolsCore</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../..">Docs</a> &raquo;</li>
+    
+      
+        
+          <li>Jp &raquo;</li>
+        
+      
+    
+    <li>SalesforcexytoolsCore, a python library for salesforce</li>
+    <li class="wy-breadcrumbs-aside">
+      
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <div class="toc">
+<ul>
+<li><a href="#salesforcexytoolscore">SalesforcexytoolsCore</a><ul>
+<li><a href="#introduce">Introduce</a></li>
+<li><a href="#requirement">Requirement</a></li>
+<li><a href="#install">Install</a></li>
+<li><a href="#document">Document</a></li>
+<li><a href="#download-pdf">Download PDF</a></li>
+<li><a href="#about-author-exiahuang">About Author : Exia.Huang</a></li>
+<li><a href="#sample-source">Sample Source</a></li>
+</ul>
+</li>
+<li><a href="#salesforcexytoolscorepythonapexclass">SalesforceXyToolsCore/Python上でApexClassを作成・更新・削除</a><ul>
+<li><a href="#topic">Topic</a></li>
+<li><a href="#apexclass">ApexClassの作成</a></li>
+<li><a href="#apexclass_1">ApexClassの更新</a></li>
+<li><a href="#apexclass_2">ApexClassの削除</a></li>
+<li><a href="#_1">その他</a><ul>
+<li><a href="#trigger">Triggerの作成</a></li>
+<li><a href="#visualforce">VisualForceの作成</a></li>
+<li><a href="#apexcomponent">ApexComponentの作成</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#salesforcexytoolscorepythonsobject">SalesforceXyToolsCore/Python上でSobjectを作成・更新・削除</a><ul>
+<li><a href="#topic_1">Topic</a></li>
+<li><a href="#idsobject">IDでSobjectの取得</a></li>
+<li><a href="#sobject">外部キーでSobjectの取得</a></li>
+<li><a href="#idsobject_1">IDでSobjectの更新</a></li>
+<li><a href="#idsobject_2">IDでSobjectの削除</a></li>
+</ul>
+</li>
+<li><a href="#salesforcexytoolscorepythonapex">SalesforceXyToolsCore/Python上でApexログを取得</a><ul>
+<li><a href="#topic_2">Topic</a></li>
+<li><a href="#apex">Apexログを取得</a></li>
+</ul>
+</li>
+<li><a href="#salesforcexytoolscorepythonapexscript">SalesforceXyToolsCore/Python上でApexScriptを実行する</a><ul>
+<li><a href="#topic_3">Topic</a></li>
+<li><a href="#apexscript">ApexScriptを実行する</a><ul>
+<li><a href="#_2">結果ログを確認：</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#salesforcexytoolscorepythonsalesforcesoql">SalesforceXyToolsCore/Python上でSalesforce組織のSoqlを実行する</a><ul>
+<li><a href="#topic_4">Topic</a></li>
+<li><a href="#_3">メールテンプレートのフォルダーを取得する</a><ul>
+<li><a href="#_4">結果確認</a></li>
+</ul>
+</li>
+<li><a href="#_5">その他方法</a><ul>
+<li><a href="#query_more">query_more</a></li>
+<li><a href="#query_all">query_allですべてのデータを取得する</a></li>
+<li><a href="#search">search</a></li>
+<li><a href="#quick_search">quick_search</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#salesforcexytoolscorepython">SalesforceXyToolsCore/Python上でテストクラスを実行する</a><ul>
+<li><a href="#topic_5">Topic</a></li>
+<li><a href="#_6">テストクラスを実行する</a></li>
+</ul>
+</li>
+<li><a href="#salesforcexytoolscorepythonsalesforcerest-api">SalesforceXyToolsCore/Python上でSalesforceのREST APIへアクセス</a><ul>
+<li><a href="#topic_6">Topic</a></li>
+<li><a href="#apexclass_3">Apexclass内容を取得する</a></li>
+<li><a href="#apexcodecoverage">ApexCodeCoverageカバー率を取得する</a></li>
+<li><a href="#sobjects">Sobjects一覧を取得する</a></li>
+</ul>
+</li>
+<li><a href="#salesforcexytoolscorepythonsalesforce">SalesforceXyToolsCore/Python上でSalesforce組織を説明するメタデータを取得する</a><ul>
+<li><a href="#topic_7">Topic</a></li>
+<li><a href="#describemetadata">DescribeMetadataの実行</a><ul>
+<li><a href="#_7">結果確認</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#salesforcexytoolscorepythonsalesforcepackagexml">SalesforceXyToolsCore/Python上でSalesforce組織からのPackage.xmlを作成</a><ul>
+<li><a href="#topic_8">Topic</a></li>
+<li><a href="#packagexml">Package.xmlの作成</a></li>
+<li><a href="#sfdcpackage">SFDC組織からPackage関するリストを取得</a></li>
+</ul>
+</li>
+<li><a href="#salesforcexytoolscorepythonmetadata">SalesforceXyToolsCore/Python上ですべてのMetadataを情報を取得してみよう</a><ul>
+<li><a href="#topic_9">Topic</a></li>
+<li><a href="#metadata">すべてのMetadataを情報を取得する</a><ul>
+<li><a href="#_8">結果確認</a></li>
+</ul>
+</li>
+<li><a href="#metadata_1">Metadataのリストを取得したい場合</a></li>
+<li><a href="#_9">指定したメタデータを取得する</a></li>
+</ul>
+</li>
+<li><a href="#salesforcexytoolscorepythonsalesforce_1">SalesforceXyToolsCore/Python上でSalesforce組織のフォルダーを取得する</a><ul>
+<li><a href="#topic_10">Topic</a></li>
+<li><a href="#_10">メールテンプレートのフォルダーを取得する</a><ul>
+<li><a href="#_11">結果確認</a></li>
+</ul>
+</li>
+<li><a href="#_12">その以外のフォルダー</a></li>
+</ul>
+</li>
+<li><a href="#salesforcexytoolscorepython3salesforce">SalesforceXyToolsCore/Python上でたった3行でSalesforce組織からのメタデータの取得</a><ul>
+<li><a href="#topic_11">Topic</a></li>
+<li><a href="#_13">メリット</a></li>
+<li><a href="#salesforce">Salesforce組織からのメタデータの取得</a></li>
+<li><a href="#_14">分析</a><ul>
+<li><a href="#_15">メタデータ取得ロジック</a></li>
+<li><a href="#retrieve">retrieveタスクを開始</a></li>
+<li><a href="#retrieve_1">retrieveの状況を確認</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#salesforcexytoolscorepythonsalesforce_2">SalesforceXyToolsCore/Python上でSalesforce組織の添付ファイルを一括ダウンロードする</a><ul>
+<li><a href="#topic_12">Topic</a></li>
+<li><a href="#attachment">Attachment</a></li>
+<li><a href="#salesforce_1">Salesforce組織の添付ファイルを一括ダウンロードする</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div style="page-break-before:always"></div>
+
+<h1 id="salesforcexytoolscore">SalesforcexytoolsCore</h1>
+<h2 id="introduce">Introduce</h2>
+<blockquote>
+<p>SalesforcexytoolsCore is a python library for salesforce. It is base on <a href="https://github.com/simple-salesforce/simple-salesforce">simple-salesforce</a></p>
+</blockquote>
+<ul>
+<li>Sobject Record Management : sobject create, get, get_by_custom_id, update, delete</li>
+<li>Sobject Queries : query, query_more, search, query_allsearch</li>
+<li>Sobject Bulk action</li>
+<li>Run Apex Script</li>
+<li>Metadata Control : describeMetadata, listAllMetadata, getAllMetadataMap, listmeta, listFolder, retrieve, etc.</li>
+<li>Package.xml builder.</li>
+<li>Retrieve Metadata to memory, Retrieve Metadata zip file.</li>
+<li>ApexClass, Trigger, ApexComponent, ApexPage: create, update, delete, get</li>
+<li>Get Apex Log </li>
+<li>Run test class</li>
+</ul>
+<h2 id="requirement">Requirement</h2>
+<ul>
+<li>Python3</li>
+<li><a href="http://requests-docs-ja.readthedocs.io/en/latest/">requests</a></li>
+</ul>
+<h2 id="install">Install</h2>
+<pre><code>pip install SalesforcexytoolsCore
+</code></pre>
+
+<h2 id="document">Document</h2>
+<p><a href="http://salesforcexytools.com/categories/SalesforceXyToolsCore-JP/">SalesforceXyToolsCore JP Document</a></p>
+<h2 id="download-pdf">Download PDF</h2>
+<p><a href="http://salesforcexytools.com/pdf/SalesforceXyToolsCore-Python-Library-For-salesforce-jp.pdf">SalesforcexytoolsCore-python-library-for-salesforce(日本語).pdf</a></p>
+<h2 id="about-author-exiahuang">About Author : Exia.Huang</h2>
+<ul>
+<li><a href="http://salesforcexytools.com">SalesforceXyTools HP</a></li>
+<li><a href="https://github.com/exiahuang">Github</a></li>
+<li><a href="https://twitter.com/ExiaSfdc">Twitter</a></li>
+<li><a href="https://www.facebook.com/profile.php?id=100015890262852">Facebook</a></li>
+<li><a href="https://qiita.com/exiasfdc">Qiita</a></li>
+<li><a href="https://exiasfdc.hatenablog.com/">Hatenaはてなブログ</a></li>
+</ul>
+<h2 id="sample-source">Sample Source</h2>
+<p><a href="https://github.com/exiahuang/SalesforceXyToolsCore/tree/master/example">Sample Source</a></p>
+<pre><code>apexclass-create.py
+apexclass-delete.py
+apexclass-update.py
+apexcomponent-create.py
+build-package-xml.py
+config.py
+describe-metadata.py
+download-attachments.py
+get-all-metadata-map.py
+get-apexlog.py
+list-all-metadata.py
+list-folders.py
+list-metadata.py
+package-type-list.py
+retrieve-metadata-to-memory.py
+retrieve-metadata-to-zip.py
+run-apex-script.py
+run-rest-api.py
+run-soql-queries.py
+run-testclass.py
+sobject-CURD.py
+trigger-create.py
+visualforce-create.py
+</code></pre>
+
+<div style="page-break-before:always"></div>
+
+<h1 id="salesforcexytoolscorepythonapexclass">SalesforceXyToolsCore/Python上でApexClassを作成・更新・削除</h1>
+<h2 id="topic">Topic</h2>
+<ul>
+<li><a href="http://salesforcexytools.com/categories/SalesforceXyToolsCore-JP/">SalesforceXyToolsCore</a>を使ってApexClassを作成・更新・削除</li>
+</ul>
+<h2 id="apexclass">ApexClassの作成</h2>
+<ul>
+<li>Salesforce組織のユーザ名、パスワード、Apiバージョン、Product/Sandboxを設定してください。</li>
+</ul>
+<pre><code class="python">from SalesforceXytoolsCore import *
+import pprint
+
+config = {
+    &quot;api_version&quot;: 42.0, 
+    &quot;username&quot;: &quot;sfdc username&quot;, 
+    &quot;password&quot;: &quot;sfdc password&quot;, 
+    &quot;security_token&quot;: &quot;&quot;, 
+    &quot;is_sandbox&quot;: True
+}
+
+tooling_api = ToolingApi(username=config[&quot;username&quot;], 
+                password=config[&quot;password&quot;], 
+                security_token=config[&quot;security_token&quot;], 
+                sandbox=config[&quot;is_sandbox&quot;],
+                version=config[&quot;api_version&quot;]
+                )
+
+&quot;&quot;&quot;createApexClass&quot;&quot;&quot;
+name = &quot;HelloWorld&quot;
+body = &quot;&quot;&quot;public class HelloWorld {
+        private String mystr;
+}&quot;&quot;&quot;
+
+
+status_code, result = tooling_api.createApexClass(name, body)
+print(status_code)
+pprint.pprint(result)
+</code></pre>
+
+<p>結果確認：</p>
+<pre><code class="json">{'errors': [], 'id': '01pxxxxxxxxxxxxxxxxx', 'success': True}
+</code></pre>
+
+<h2 id="apexclass_1">ApexClassの更新</h2>
+<pre><code class="python">from SalesforceXytoolsCore import *
+import pprint
+
+config = {
+    &quot;api_version&quot;: 42.0, 
+    &quot;username&quot;: &quot;sfdc username&quot;, 
+    &quot;password&quot;: &quot;sfdc password&quot;, 
+    &quot;security_token&quot;: &quot;&quot;, 
+    &quot;is_sandbox&quot;: True
+}
+
+tooling_api = ToolingApi(username=config[&quot;username&quot;], 
+                password=config[&quot;password&quot;], 
+                security_token=config[&quot;security_token&quot;], 
+                sandbox=config[&quot;is_sandbox&quot;],
+                version=config[&quot;api_version&quot;]
+                )
+
+apexclass_id = &quot;set your apex class id&quot;
+body = &quot;&quot;&quot;public class HelloWorld {
+        private String mystr1;
+}&quot;&quot;&quot;
+tooling_api.updateApexClass(apexclass_id, body)
+</code></pre>
+
+<h2 id="apexclass_2">ApexClassの削除</h2>
+<pre><code class="python">from SalesforceXytoolsCore import *
+import pprint
+
+config = {
+    &quot;api_version&quot;: 42.0, 
+    &quot;username&quot;: &quot;sfdc username&quot;, 
+    &quot;password&quot;: &quot;sfdc password&quot;, 
+    &quot;security_token&quot;: &quot;&quot;, 
+    &quot;is_sandbox&quot;: True
+}
+
+tooling_api = ToolingApi(username=config[&quot;username&quot;], 
+                password=config[&quot;password&quot;], 
+                security_token=config[&quot;security_token&quot;], 
+                sandbox=config[&quot;is_sandbox&quot;],
+                version=config[&quot;api_version&quot;]
+                )
+
+apexclass_id = &quot;set your apex class id&quot;
+body = &quot;&quot;&quot;public class HelloWorld {
+        private String mystr1;
+}&quot;&quot;&quot;
+tooling_api.updateApexClass(apexclass_id, body)
+</code></pre>
+
+<h2 id="_1">その他</h2>
+<h3 id="trigger">Triggerの作成</h3>
+<pre><code class="python">&quot;&quot;&quot;createTrigger&quot;&quot;&quot;
+tooling_api.createTrigger(tableEnumOrId, name, body)
+</code></pre>
+
+<h3 id="visualforce">VisualForceの作成</h3>
+<pre><code class="python">&quot;&quot;&quot;createApexPage&quot;&quot;&quot;
+tooling_api.createApexPage(MasterLabel, name, markup)
+</code></pre>
+
+<h3 id="apexcomponent">ApexComponentの作成</h3>
+<pre><code class="python">&quot;&quot;&quot;createApexComponent&quot;&quot;&quot;
+tooling_api.createApexComponent(MasterLabel, name, markup)
+</code></pre>
+
+<div style="page-break-before:always"></div>
+
+<h1 id="salesforcexytoolscorepythonsobject">SalesforceXyToolsCore/Python上でSobjectを作成・更新・削除</h1>
+<h2 id="topic_1">Topic</h2>
+<ul>
+<li><a href="http://salesforcexytools.com/categories/SalesforceXyToolsCore-JP/">SalesforceXyToolsCore</a>を使ってSobjectを作成・更新・削除</li>
+</ul>
+<h2 id="idsobject">IDでSobjectの取得</h2>
+<p>Salesforce組織のユーザ名、パスワード、Apiバージョン、Product/Sandboxを設定してください。</p>
+<blockquote>
+<p>Accountを取得する</p>
+</blockquote>
+<pre><code class="python">from SalesforceXytoolsCore import *
+import pprint
+
+config = {
+    &quot;api_version&quot;: 42.0, 
+    &quot;username&quot;: &quot;sfdc username&quot;, 
+    &quot;password&quot;: &quot;sfdc password&quot;, 
+    &quot;security_token&quot;: &quot;&quot;, 
+    &quot;is_sandbox&quot;: True
+}
+
+soap_api = Soap(username=config[&quot;username&quot;], 
+                password=config[&quot;password&quot;], 
+                security_token=config[&quot;security_token&quot;], 
+                sandbox=config[&quot;is_sandbox&quot;],
+                version=config[&quot;api_version&quot;]
+                )
+
+print('hello SalesforceXytoolsCore Test start')
+Account = soap_api.get_sobject(&quot;Account&quot;)
+
+&quot;&quot;&quot;
+get a Sobject in Salesforce
+&quot;&quot;&quot;
+acc_id=&quot;set your sobject id&quot;
+account1 = Account.get(acc_id)
+pprint.pprint(account1)
+</code></pre>
+
+<h2 id="sobject">外部キーでSobjectの取得</h2>
+<pre><code class="python">&quot;&quot;&quot;
+get a Sobject by External ID
+&quot;&quot;&quot;
+account1 = Account.get_by_custom_id('My_Custom_ID__c', 'custom_id')
+pprint.pprint(account1)
+
+</code></pre>
+
+<h2 id="idsobject_1">IDでSobjectの更新</h2>
+<pre><code class="python">
+&quot;&quot;&quot;
+update a Sobject in Salesforce
+&quot;&quot;&quot;
+acc_id=&quot;set your sobject id&quot;
+account1 = Account.update(acc_id,{'LastName': 'sfdc'})
+pprint.pprint(account1)
+</code></pre>
+
+<h2 id="idsobject_2">IDでSobjectの削除</h2>
+<pre><code class="python">&quot;&quot;&quot;
+delete a Sobject in Salesforce
+&quot;&quot;&quot;
+acc_id=&quot;set your sobject id&quot;
+Account.delete(acc_id)
+</code></pre>
+
+<div style="page-break-before:always"></div>
+
+<h1 id="salesforcexytoolscorepythonapex">SalesforceXyToolsCore/Python上でApexログを取得</h1>
+<h2 id="topic_2">Topic</h2>
+<ul>
+<li><a href="http://salesforcexytools.com/categories/SalesforceXyToolsCore-JP/">SalesforceXyToolsCore</a>を使ってApexログを取得</li>
+</ul>
+<h2 id="apex">Apexログを取得</h2>
+<ul>
+<li>Salesforce組織のユーザ名、パスワード、Apiバージョン、Product/Sandboxを設定してください。</li>
+</ul>
+<pre><code class="python">from SalesforceXytoolsCore import *
+import pprint
+
+config = {
+    &quot;api_version&quot;: 42.0, 
+    &quot;username&quot;: &quot;sfdc username&quot;, 
+    &quot;password&quot;: &quot;sfdc password&quot;, 
+    &quot;security_token&quot;: &quot;&quot;, 
+    &quot;is_sandbox&quot;: True
+}
+
+tooling_api = ToolingApi(username=config[&quot;username&quot;], 
+                password=config[&quot;password&quot;], 
+                security_token=config[&quot;security_token&quot;], 
+                sandbox=config[&quot;is_sandbox&quot;],
+                version=config[&quot;api_version&quot;]
+                )
+
+&quot;&quot;&quot;get apex log&quot;&quot;&quot;
+log_id = '07LXXXXXXXXXXXXXXXXXXXX'
+result = tooling_api.getLog(log_id)
+pprint.pprint(result)
+
+</code></pre>
+
+<div style="page-break-before:always"></div>
+
+<h1 id="salesforcexytoolscorepythonapexscript">SalesforceXyToolsCore/Python上でApexScriptを実行する</h1>
+<h2 id="topic_3">Topic</h2>
+<ul>
+<li><a href="http://salesforcexytools.com/categories/SalesforceXyToolsCore-JP/">SalesforceXyToolsCore</a>を使ってSalesforceのApexScriptを実行する</li>
+</ul>
+<h2 id="apexscript">ApexScriptを実行する</h2>
+<p>Salesforce組織のユーザ名、パスワード、Apiバージョン、Product/Sandboxを設定してください。</p>
+<pre><code class="python">from SalesforceXytoolsCore import *
+import pprint
+
+config = {
+    &quot;api_version&quot;: 42.0, 
+    &quot;username&quot;: &quot;sfdc username&quot;, 
+    &quot;password&quot;: &quot;sfdc password&quot;, 
+    &quot;security_token&quot;: &quot;&quot;, 
+    &quot;is_sandbox&quot;: True
+}
+
+soap_api = Soap(username=config[&quot;username&quot;], 
+                password=config[&quot;password&quot;], 
+                security_token=config[&quot;security_token&quot;], 
+                sandbox=config[&quot;is_sandbox&quot;],
+                version=config[&quot;api_version&quot;]
+                )
+
+&quot;&quot;&quot;
+Run Apex Script
+&quot;&quot;&quot;
+apex_string = &quot;System.debug('hello world');&quot;
+debug_levels = {
+        &quot;DB&quot;: &quot;Info&quot;, 
+        &quot;System&quot;: &quot;DEBUG&quot;, 
+        &quot;Workflow&quot;: &quot;INFO&quot;, 
+        &quot;Callout&quot;: &quot;INFO&quot;, 
+        &quot;Validation&quot;: &quot;INFO&quot;, 
+        &quot;Apex_Code&quot;: &quot;DEBUG&quot;, 
+        &quot;Apex_Profiling&quot;: &quot;INFO&quot;
+    }
+result = soap_api.execute_anonymous(apex_string, debug_levels)
+pprint.pprint(result)
+</code></pre>
+
+<h3 id="_2">結果ログを確認：</h3>
+<pre><code class="json">{'debugLog': '42.0 '
+             'APEX_CODE,DEBUG;APEX_PROFILING,INFO;CALLOUT,INFO;DB,INFO;SYSTEM,DEBUG;VALIDATION,INFO;WORKFLOW,INFO\n'
+             &quot;Execute Anonymous: System.debug('hello world');\n&quot;
+             '22:22:14.19 '
+             '()|USER_INFO|[EXTERNAL]|xxxxxxxxxxxxxxxxxxxxxxxxx|日本標準時|GMT+09:00\n'
+             '22:22:14.19 ()|EXECUTION_STARTED\n'
+             '22:22:14.19 '
+             '()|CODE_UNIT_STARTED|[EXTERNAL]|execute_anonymous_apex\n'
+             '22:22:14.19 ()|USER_DEBUG|[1]|DEBUG|hello world\n'
+             '22:22:14.19 ()|CUMULATIVE_LIMIT_USAGE\n'
+             '22:22:14.19 ()|LIMIT_USAGE_FOR_NS|(default)|\n'
+             '  Number of SOQL queries: 0 out of 100\n'
+             '  Number of query rows: 0 out of 50000\n'
+             '  Number of SOSL queries: 0 out of 20\n'
+             '  Number of DML statements: 0 out of 150\n'
+             '  Number of DML rows: 0 out of 10000\n'
+             '  Maximum CPU time: 0 out of 10000\n'
+             '  Maximum heap size: 0 out of 6000000\n'
+             '  Number of callouts: 0 out of 100\n'
+             '  Number of Email Invocations: 0 out of 10\n'
+             '  Number of future calls: 0 out of 50\n'
+             '  Number of queueable jobs added to the queue: 0 out of 50\n'
+             '  Number of Mobile Apex push calls: 0 out of 10\n'
+             '\n'
+             '22:22:14.19 ()|CUMULATIVE_LIMIT_USAGE_END\n'
+             '\n'
+             '22:22:14.19 '
+             '()|CODE_UNIT_FINISHED|execute_anonymous_apex\n'
+             '22:22:14.19 ()|EXECUTION_FINISHED\n',
+ 'success': True}
+</code></pre>
+
+<div style="page-break-before:always"></div>
+
+<h1 id="salesforcexytoolscorepythonsalesforcesoql">SalesforceXyToolsCore/Python上でSalesforce組織のSoqlを実行する</h1>
+<h2 id="topic_4">Topic</h2>
+<ul>
+<li><a href="http://salesforcexytools.com/categories/SalesforceXyToolsCore-JP/">SalesforceXyToolsCore</a>を使ってSalesforce組織のSoqlを実行する</li>
+</ul>
+<h2 id="_3">メールテンプレートのフォルダーを取得する</h2>
+<ul>
+<li>Salesforce組織のユーザ名、パスワード、Apiバージョン、Product/Sandboxを設定してください。</li>
+</ul>
+<pre><code class="python">from SalesforceXytoolsCore import *
+import pprint
+
+config = {
+    &quot;api_version&quot;: 42.0, 
+    &quot;username&quot;: &quot;sfdc username&quot;, 
+    &quot;password&quot;: &quot;sfdc password&quot;, 
+    &quot;security_token&quot;: &quot;&quot;, 
+    &quot;is_sandbox&quot;: True
+}
+
+soap_api = Soap(username=config[&quot;username&quot;], 
+                password=config[&quot;password&quot;], 
+                security_token=config[&quot;security_token&quot;], 
+                sandbox=config[&quot;is_sandbox&quot;],
+                version=config[&quot;api_version&quot;]
+                )
+
+&quot;&quot;&quot;
+Run Soql Queries
+&quot;&quot;&quot;
+soql_string = &quot;SELECT Id, Name FROM User LIMIT 3&quot;
+result = soap_api.query(soql_string)
+pprint.pprint(result)
+
+
+</code></pre>
+
+<h3 id="_4">結果確認</h3>
+<pre><code class="json">OrderedDict([('totalSize', 3),
+             ('done', True),
+             ('records',
+              [OrderedDict([('attributes',
+                             OrderedDict([('type', 'User'),
+                                          ('url',
+                                           '/services/data/v42.0/sobjects/User/005XXXXXXXXXXXXXXX')])),
+                            ('Id', '005XXXXXXXXXXXXXXX'),
+                            ('Name', 'Process Automated')]),
+               OrderedDict([('attributes',
+                             OrderedDict([('type', 'User'),
+                                          ('url',
+                                           '/services/data/v42.0/sobjects/User/005XXXXXXXXXXXXXXX')])),
+                            ('Id', '005XXXXXXXXXXXXXXX'),
+                            ('Name', 'サイトゲストユーザ')]),
+               OrderedDict([('attributes',
+                             OrderedDict([('type', 'User'),
+                                          ('url',
+                                           '/services/data/v42.0/sobjects/User/005XXXXXXXXXXXXXXX')])),
+                            ('Id', '005XXXXXXXXXXXXXXX'),
+                            ('Name', 'SFDC Exia')])])])
+</code></pre>
+
+<h2 id="_5">その他方法</h2>
+<h3 id="query_more">query_more</h3>
+<pre><code>soap_api.query_more(sobject_id)
+soap_api.query_more(&quot;/services/data/v43.0/query/sobject_id&quot;, True)
+</code></pre>
+
+<h3 id="query_all">query_allですべてのデータを取得する</h3>
+<pre><code>soap_api.query_all(&quot;SELECT Id, Email FROM Contact WHERE LastName = 'Jones'&quot;)
+</code></pre>
+
+<h3 id="search">search</h3>
+<pre><code>soap_api.search(&quot;FIND {exia}&quot;)
+</code></pre>
+
+<h3 id="quick_search">quick_search</h3>
+<pre><code>soap_api.quick_search(&quot;exia&quot;)
+</code></pre>
+
+<div style="page-break-before:always"></div>
+
+<h1 id="salesforcexytoolscorepython">SalesforceXyToolsCore/Python上でテストクラスを実行する</h1>
+<h2 id="topic_5">Topic</h2>
+<ul>
+<li><a href="http://salesforcexytools.com/categories/SalesforceXyToolsCore-JP/">SalesforceXyToolsCore</a>を使ってSalesforceのテストクラスを実行する</li>
+</ul>
+<h2 id="_6">テストクラスを実行する</h2>
+<p>Salesforce組織のユーザ名、パスワード、Apiバージョン、Product/Sandboxを設定してください。</p>
+<pre><code class="python">from SalesforceXytoolsCore import *
+import pprint
+
+config = {
+    &quot;api_version&quot;: 42.0, 
+    &quot;username&quot;: &quot;sfdc username&quot;, 
+    &quot;password&quot;: &quot;sfdc password&quot;, 
+    &quot;security_token&quot;: &quot;&quot;, 
+    &quot;is_sandbox&quot;: True
+}
+
+tooling_api = ToolingApi(username=config[&quot;username&quot;], 
+                password=config[&quot;password&quot;], 
+                security_token=config[&quot;security_token&quot;], 
+                sandbox=config[&quot;is_sandbox&quot;],
+                version=config[&quot;api_version&quot;]
+                )
+
+&quot;&quot;&quot;run test class&quot;&quot;&quot;
+id_list = ['xxx', 'xxxx']
+tooling_api.runTestSynchronous(id_list)
+</code></pre>
+
+<div style="page-break-before:always"></div>
+
+<h1 id="salesforcexytoolscorepythonsalesforcerest-api">SalesforceXyToolsCore/Python上でSalesforceのREST APIへアクセス</h1>
+<h2 id="topic_6">Topic</h2>
+<ul>
+<li><a href="http://salesforcexytools.com/categories/SalesforceXyToolsCore-JP/">SalesforceXyToolsCore</a>を使ってSalesforceのREST APIへアクセス </li>
+</ul>
+<h2 id="apexclass_3">Apexclass内容を取得する</h2>
+<ul>
+<li>Salesforce組織のユーザ名、パスワード、Apiバージョン、Product/Sandboxを設定してください。</li>
+</ul>
+<pre><code class="python">from SalesforceXytoolsCore import *
+import pprint
+
+config = {
+    &quot;api_version&quot;: 42.0, 
+    &quot;username&quot;: &quot;sfdc username&quot;, 
+    &quot;password&quot;: &quot;sfdc password&quot;, 
+    &quot;security_token&quot;: &quot;&quot;, 
+    &quot;is_sandbox&quot;: True
+}
+
+rest_api = RestApi(username=config[&quot;username&quot;], 
+                password=config[&quot;password&quot;], 
+                security_token=config[&quot;security_token&quot;], 
+                sandbox=config[&quot;is_sandbox&quot;],
+                version=config[&quot;api_version&quot;]
+                )
+
+&quot;&quot;&quot;
+Run Rest API : query apexclass
+&quot;&quot;&quot;
+sel_string = &quot;Select Id, Name From ApexClass Limit 3&quot;
+params = {'q': sel_string}
+result = rest_api.restful('tooling/query', params)
+pprint.pprint(result)
+
+</code></pre>
+
+<p><strong>結果を確認</strong></p>
+<pre><code class="json">OrderedDict([('size', 3),
+             ('totalSize', 3),
+             ('done', True),
+             ('queryLocator', None),
+             ('entityTypeName', 'ApexClass'),
+             ('records',
+              [OrderedDict([('attributes',
+                             OrderedDict([('type', 'ApexClass'),
+                                          ('url',
+                                           '/services/data/v42.0/tooling/sobjects/ApexClass/01pXXXXXXXXXXXXX')])),
+                            ('Id', '01pXXXXXXXXXXXXX'),
+                            ('Name', 'OpportXXXXXXX')]),
+               OrderedDict([('attributes',
+                             OrderedDict([('type', 'ApexClass'),
+                                          ('url',
+                                           '/services/data/v42.0/tooling/sobjects/ApexClass/01pXXXXXXXXXXXXX')])),
+                            ('Id', '01pXXXXXXXXXXXXX'),
+                            ('Name', 'DaoXXXXXXXXXXXXX')]),
+               OrderedDict([('attributes',
+                             OrderedDict([('type', 'ApexClass'),
+                                          ('url',
+                                           '/services/data/v42.0/tooling/sobjects/ApexClass/01pXXXXXXXXXXXXX')])),
+                            ('Id', '01pXXXXXXXXXXXXX'),
+                            ('Name', 'ExiaXXXXXXXXXXXXX')])])])
+</code></pre>
+
+<h2 id="apexcodecoverage">ApexCodeCoverageカバー率を取得する</h2>
+<pre><code class="python">
+&quot;&quot;&quot;
+Run Rest API : query ApexCodeCoverage
+&quot;&quot;&quot;
+sel_string = &quot;SELECT Id, ApexTestClassId, TestMethodName, ApexClassorTriggerId, NumLinesCovered, NumLinesUncovered, Coverage FROM ApexCodeCoverage&quot;
+params = {'q': sel_string}
+result = rest_api.restful(
+    path='tooling/query', 
+    params=params,
+    method='GET'
+)
+pprint.pprint(result)
+
+</code></pre>
+
+<h2 id="sobjects">Sobjects一覧を取得する</h2>
+<pre><code class="python">
+&quot;&quot;&quot;
+Run Rest API : search sobjects
+&quot;&quot;&quot;
+result = rest_api.call_rest(
+    method='GET',
+    path='/services/data/v37.0/sobjects', 
+    params={},
+)
+pprint.pprint(result)
+
+</code></pre>
+
+<p>結果を確認</p>
+<pre><code class="json">{'encoding': 'UTF-8',
+ 'maxBatchSize': 200,
+ 'sobjects': [
+              {'activateable': False,
+               'createable': True,
+               'custom': False,
+               'customSetting': False,
+               'deletable': True,
+               'deprecatedAndHidden': False,
+               'feedEnabled': True,
+               'keyPrefix': '006',
+               'label': 'Opportunity',
+               'labelPlural': 'Opportunities',
+               'layoutable': True,
+               'mergeable': False,
+               'mruEnabled': True,
+               'name': 'Opportunity',
+               'queryable': True,
+               'replicateable': True,
+               'retrieveable': True,
+               'searchable': True,
+               'triggerable': True,
+               'undeletable': True,
+               'updateable': True,
+               'urls': {'approvalLayouts': '/services/data/v37.0/sobjects/Opportunity/describe/approvalLayouts',
+                        'compactLayouts': '/services/data/v37.0/sobjects/Opportunity/describe/compactLayouts',
+                        'defaultValues': '/services/data/v37.0/sobjects/Opportunity/defaultValues?recordTypeId&amp;fields',
+                        'describe': '/services/data/v37.0/sobjects/Opportunity/describe',
+                        'layouts': '/services/data/v37.0/sobjects/Opportunity/describe/layouts',
+                        'listviews': '/services/data/v37.0/sobjects/Opportunity/listviews',
+                        'quickActions': '/services/data/v37.0/sobjects/Opportunity/quickActions',
+                        'rowTemplate': '/services/data/v37.0/sobjects/Opportunity/{ID}',
+                        'sobject': '/services/data/v37.0/sobjects/Opportunity'}},
+    ................
+    ................
+    .....省略.......
+    ................
+    ................
+ ]
+}
+</code></pre>
+
+<div style="page-break-before:always"></div>
+
+<h1 id="salesforcexytoolscorepythonsalesforce">SalesforceXyToolsCore/Python上でSalesforce組織を説明するメタデータを取得する</h1>
+<h2 id="topic_7">Topic</h2>
+<ul>
+<li><a href="http://salesforcexytools.com/categories/SalesforceXyToolsCore-JP/">SalesforceXyToolsCore</a>を使ってDescribeMetadataを実行して、DescribeMetadataを実行してSalesforce組織を説明するメタデータを取得します。この情報には Apex クラスおよびトリガ、カスタムオブジェクト、標準オブジェクトのカスタム項目、アプリケーションを定義するタブセット、および他の多くのメタデータ型が含まれています。</li>
+</ul>
+<h2 id="describemetadata">DescribeMetadataの実行</h2>
+<ul>
+<li>Salesforce組織のユーザ名、パスワード、Apiバージョン、Product/Sandboxを設定してください。</li>
+</ul>
+<pre><code class="python">from SalesforceXytoolsCore import *
+import pprint
+
+config = {
+    &quot;api_version&quot;: 42.0, 
+    &quot;username&quot;: &quot;sfdc username&quot;, 
+    &quot;password&quot;: &quot;sfdc password&quot;, 
+    &quot;security_token&quot;: &quot;&quot;, 
+    &quot;is_sandbox&quot;: True
+}
+
+meta_api = MetadataApi(username=config[&quot;username&quot;], 
+                password=config[&quot;password&quot;], 
+                security_token=config[&quot;security_token&quot;], 
+                sandbox=config[&quot;is_sandbox&quot;],
+                version=config[&quot;api_version&quot;]
+                )
+
+&quot;&quot;&quot;
+describeMetadata :
+    This call retrieves the metadata that describes your organization. 
+    This information includes Apex classes and triggers, custom objects, custom fields on standard objects, tab sets that define an app, and many other metadata types.
+&quot;&quot;&quot;
+result = meta_api.describeMetadata()
+pprint.pprint(result)
+## print(json.dumps(result, indent=4))
+</code></pre>
+
+<h3 id="_7">結果確認</h3>
+<pre><code class="json">OrderedDict([('metadataObjects',
+              [OrderedDict([('directoryName', 'installedPackages'),
+                            ('inFolder', 'false'),
+                            ('metaFile', 'false'),
+                            ('suffix', 'installedPackage'),
+                            ('xmlName', 'InstalledPackage')]),
+               OrderedDict([('childXmlNames', 'CustomLabel'),
+                            ('directoryName', 'labels'),
+                            ('inFolder', 'false'),
+                            ('metaFile', 'false'),
+                            ('suffix', 'labels'),
+                            ('xmlName', 'CustomLabels')]),
+               OrderedDict([('directoryName', 'staticresources'),
+                            ('inFolder', 'false'),
+                            ('metaFile', 'true'),
+                            ('suffix', 'resource'),
+                            ('xmlName', 'StaticResource')]),
+               OrderedDict([('directoryName', 'scontrols'),
+                            ('inFolder', 'false'),
+                            ('metaFile', 'true'),
+                            ('suffix', 'scf'),
+                            ('xmlName', 'Scontrol')]),
+               OrderedDict([('directoryName', 'certs'),
+                            ('inFolder', 'false'),
+                            ('metaFile', 'true'),
+                            ('suffix', 'crt'),
+                            ('xmlName', 'Certificate')]),
+               OrderedDict([('directoryName', 'aura'),
+                            ('inFolder', 'false'),
+                            ('metaFile', 'false'),
+                            ('xmlName', 'AuraDefinitionBundle')]),
+               OrderedDict([('directoryName', 'lightningcomponents'),
+                            ('inFolder', 'false'),
+                            ('metaFile', 'false'),
+                            ('xmlName', 'LightningComponentBundle')]),
+               OrderedDict([('directoryName', 'components'),
+                            ('inFolder', 'false'),
+                            ('metaFile', 'true'),
+                            ('suffix', 'component'),
+                            ('xmlName', 'ApexComponent')]),
+               OrderedDict([('directoryName', 'pages'),
+                            ('inFolder', 'false'),
+                            ('metaFile', 'true'),
+                            ('suffix', 'page'),
+                            ('xmlName', 'ApexPage')]),
+               OrderedDict([('directoryName', 'queues'),
+                            ('inFolder', 'false'),
+                            ('metaFile', 'false'),
+                            ('suffix', 'queue'),
+                            ('xmlName', 'Queue')]),
+               OrderedDict([('directoryName', 'CaseSubjectParticles'),
+                            ('inFolder', 'false'),
+                            ('metaFile', 'false'),
+                            ('suffix', 'CaseSubjectParticle'),
+                            ('xmlName', 'CaseSubjectParticle')]),
+               OrderedDict([('directoryName', 'dataSources'),
+                            ('inFolder', 'false'),
+                            ('metaFile', 'false'),
+                            ('suffix', 'dataSource'),
+                            ('xmlName', 'ExternalDataSource')]),
+               OrderedDict([('directoryName', 'namedCredentials'),
+                            ('inFolder', 'false'),
+                            ('metaFile', 'false'),
+                            ('suffix', 'namedCredential'),
+                            ('xmlName', 'NamedCredential')]),
+               OrderedDict([('directoryName', 'externalServiceRegistrations'),
+                            ('inFolder', 'false'),
+                            ('metaFile', 'false'),
+                            ('suffix', 'externalServiceRegistration'),
+                            ('xmlName', 'ExternalServiceRegistration')]),
+               OrderedDict([('directoryName', 'roles'),
+                            ('inFolder', 'false'),
+                            ('metaFile', 'false'),
+                            ('suffix', 'role'),
+                            ('xmlName', 'Role')]),
+               OrderedDict([('directoryName', 'groups'),
+                            ('inFolder', 'false'),
+                            ('metaFile', 'false'),
+                            ('suffix', 'group'),
+                            ('xmlName', 'Group')]),
+               OrderedDict([('directoryName', 'globalValueSets'),
+                            ('inFolder', 'false'),
+                            ('metaFile', 'false'),
+                            ('suffix', 'globalValueSet'),
+                            ('xmlName', 'GlobalValueSet')]),
+               OrderedDict([('directoryName', 'standardValueSets'),
+                            ('inFolder', 'false'),
+                            ('metaFile', 'false'),
+                            ('suffix', 'standardValueSet'),
+                            ('xmlName', 'StandardValueSet')]),
+               OrderedDict([('directoryName', 'customPermissions'),
+                            ('inFolder', 'false'),
+                            ('metaFile', 'false'),
+                            ('suffix', 'customPermission'),
+                            ('xmlName', 'CustomPermission')]),
+               OrderedDict([('childXmlNames',
+                             ['CustomField',
+                              'Index',
+                              'BusinessProcess',
+                              'CompactLayout',
+                              'RecordType',
+                              'WebLink',
+                              'ValidationRule',
+                              'SharingReason',
+                              'ListView',
+                              'FieldSet']),
+                            ('directoryName', 'objects'),
+                            ('inFolder', 'false'),
+                            ('metaFile', 'false'),
+                            ('suffix', 'object'),
+                            ('xmlName', 'CustomObject')]),
+               OrderedDict([('directoryName', 'reportTypes'),
+                            ('inFolder', 'false'),
+                            ('metaFile', 'false'),
+                            ('suffix', 'reportType'),
+                            ('xmlName', 'ReportType')]),
+               OrderedDict([('directoryName', 'reports'),
+                            ('inFolder', 'true'),
+                            ('metaFile', 'false'),
+                            ('suffix', 'report'),
+                            ('xmlName', 'Report')]),
+               OrderedDict([('directoryName', 'dashboards'),
+                            ('inFolder', 'true'),
+                            ('metaFile', 'false'),
+                            ('suffix', 'dashboard'),
+                            ('xmlName', 'Dashboard')]),
+               OrderedDict([('directoryName', 'analyticSnapshots'),
+                            ('inFolder', 'false'),
+                            ('metaFile', 'false'),
+                            ('suffix', 'snapshot'),
+                            ('xmlName', 'AnalyticSnapshot')]),
+               OrderedDict([('directoryName', 'feedFilters'),
+                            ('inFolder', 'false'),
+                            ('metaFile', 'false'),
+                            ('suffix', 'feedFilter'),
+                            ('xmlName', 'CustomFeedFilter')]),
+               OrderedDict([('directoryName', 'layouts'),
+                            ('inFolder', 'false'),
+                            ('metaFile', 'false'),
+                            ('suffix', 'layout'),
+                            ('xmlName', 'Layout')]),
+               OrderedDict([('directoryName', 'documents'),
+                            ('inFolder', 'true'),
+                            ('metaFile', 'true'),
+                            ('xmlName', 'Document')]),
+               OrderedDict([('directoryName', 'weblinks'),
+                            ('inFolder', 'false'),
+                            ('metaFile', 'false'),
+                            ('suffix', 'weblink'),
+                            ('xmlName', 'CustomPageWebLink')]),
+               OrderedDict([('directoryName', 'letterhead'),
+                            ('inFolder', 'false'),
+                            ('metaFile', 'false'),
+                            ('suffix', 'letter'),
+                            ('xmlName', 'Letterhead')]),
+               OrderedDict([('directoryName', 'email'),
+                            ('inFolder', 'true'),
+                            ('metaFile', 'true'),
+                            ('suffix', 'email'),
+                            ('xmlName', 'EmailTemplate')]),
+               OrderedDict([('directoryName', 'quickActions'),
+                            ('inFolder', 'false'),
+                            ('metaFile', 'false'),
+                            ('suffix', 'quickAction'),
+                            ('xmlName', 'QuickAction')]),
+               OrderedDict([('directoryName', 'flexipages'),
+                            ('inFolder', 'false'),
+                            ('metaFile', 'false'),
+                            ('suffix', 'flexipage'),
+                            ('xmlName', 'FlexiPage')]),
+               OrderedDict([('directoryName', 'tabs'),
+                            ('inFolder', 'false'),
+                            ('metaFile', 'false'),
+                            ('suffix', 'tab'),
+                            ('xmlName', 'CustomTab')]),
+               OrderedDict([('directoryName', 'customApplicationComponents'),
+                            ('inFolder', 'false'),
+                            ('metaFile', 'false'),
+                            ('suffix', 'customApplicationComponent'),
+                            ('xmlName', 'CustomApplicationComponent')]),
+               OrderedDict([('directoryName', 'applications'),
+                            ('inFolder', 'false'),
+                            ('metaFile', 'false'),
+                            ('suffix', 'app'),
+                            ('xmlName', 'CustomApplication')]),
+               OrderedDict([('directoryName', 'EmbeddedServiceConfig'),
+                            ('inFolder', 'false'),
+                            ('metaFile', 'false'),
+                            ('suffix', 'EmbeddedServiceConfig'),
+                            ('xmlName', 'EmbeddedServiceConfig')]),
+               OrderedDict([('directoryName', 'EmbeddedServiceBranding'),
+                            ('inFolder', 'false'),
+                            ('metaFile', 'false'),
+                            ('suffix', 'EmbeddedServiceBranding'),
+                            ('xmlName', 'EmbeddedServiceBranding')]),
+               OrderedDict([('directoryName', 'flows'),
+                            ('inFolder', 'false'),
+                            ('metaFile', 'false'),
+                            ('suffix', 'flow'),
+                            ('xmlName', 'Flow')]),
+               OrderedDict([('directoryName', 'flowDefinitions'),
+                            ('inFolder', 'false'),
+                            ('metaFile', 'false'),
+                            ('suffix', 'flowDefinition'),
+                            ('xmlName', 'FlowDefinition')]),
+               OrderedDict([('directoryName', 'eventSubscriptions'),
+                            ('inFolder', 'false'),
+                            ('metaFile', 'false'),
+                            ('suffix', 'subscription'),
+                            ('xmlName', 'EventSubscription')]),
+               OrderedDict([('directoryName', 'eventDeliveries'),
+                            ('inFolder', 'false'),
+                            ('metaFile', 'false'),
+                            ('suffix', 'delivery'),
+                            ('xmlName', 'EventDelivery')]),
+               OrderedDict([('childXmlNames',
+                             ['WorkflowFieldUpdate',
+                              'WorkflowKnowledgePublish',
+                              'WorkflowTask',
+                              'WorkflowAlert',
+                              'WorkflowSend',
+                              'WorkflowOutboundMessage',
+                              'WorkflowRule']),
+                            ('directoryName', 'workflows'),
+                            ('inFolder', 'false'),
+                            ('metaFile', 'false'),
+                            ('suffix', 'workflow'),
+                            ('xmlName', 'Workflow')]),
+               OrderedDict([('childXmlNames', 'AssignmentRule'),
+                            ('directoryName', 'assignmentRules'),
+                            ('inFolder', 'false'),
+                            ('metaFile', 'false'),
+                            ('suffix', 'assignmentRules'),
+                            ('xmlName', 'AssignmentRules')]),
+               OrderedDict([('childXmlNames', 'AutoResponseRule'),
+                            ('directoryName', 'autoResponseRules'),
+                            ('inFolder', 'false'),
+                            ('metaFile', 'false'),
+                            ('suffix', 'autoResponseRules'),
+                            ('xmlName', 'AutoResponseRules')]),
+               OrderedDict([('childXmlNames', 'EscalationRule'),
+                            ('directoryName', 'escalationRules'),
+                            ('inFolder', 'false'),
+                            ('metaFile', 'false'),
+                            ('suffix', 'escalationRules'),
+                            ('xmlName', 'EscalationRules')]),
+               OrderedDict([('directoryName', 'postTemplates'),
+                            ('inFolder', 'false'),
+                            ('metaFile', 'false'),
+                            ('suffix', 'postTemplate'),
+                            ('xmlName', 'PostTemplate')]),
+               OrderedDict([('directoryName', 'approvalProcesses'),
+                            ('inFolder', 'false'),
+                            ('metaFile', 'false'),
+                            ('suffix', 'approvalProcess'),
+                            ('xmlName', 'ApprovalProcess')]),
+               OrderedDict([('directoryName', 'homePageComponents'),
+                            ('inFolder', 'false'),
+                            ('metaFile', 'false'),
+                            ('suffix', 'homePageComponent'),
+                            ('xmlName', 'HomePageComponent')]),
+               OrderedDict([('directoryName', 'homePageLayouts'),
+                            ('inFolder', 'false'),
+                            ('metaFile', 'false'),
+                            ('suffix', 'homePageLayout'),
+                            ('xmlName', 'HomePageLayout')]),
+               OrderedDict([('directoryName', 'objectTranslations'),
+                            ('inFolder', 'false'),
+                            ('metaFile', 'false'),
+                            ('suffix', 'objectTranslation'),
+                            ('xmlName', 'CustomObjectTranslation')]),
+               OrderedDict([('directoryName', 'globalValueSetTranslations'),
+                            ('inFolder', 'false'),
+                            ('metaFile', 'false'),
+                            ('suffix', 'globalValueSetTranslation'),
+                            ('xmlName', 'GlobalValueSetTranslation')]),
+               OrderedDict([('directoryName', 'standardValueSetTranslations'),
+                            ('inFolder', 'false'),
+                            ('metaFile', 'false'),
+                            ('suffix', 'standardValueSetTranslation'),
+                            ('xmlName', 'StandardValueSetTranslation')]),
+               OrderedDict([('directoryName', 'classes'),
+                            ('inFolder', 'false'),
+                            ('metaFile', 'true'),
+                            ('suffix', 'cls'),
+                            ('xmlName', 'ApexClass')]),
+               OrderedDict([('directoryName', 'triggers'),
+                            ('inFolder', 'false'),
+                            ('metaFile', 'true'),
+                            ('suffix', 'trigger'),
+                            ('xmlName', 'ApexTrigger')]),
+               OrderedDict([('directoryName', 'testSuites'),
+                            ('inFolder', 'false'),
+                            ('metaFile', 'false'),
+                            ('suffix', 'testSuite'),
+                            ('xmlName', 'ApexTestSuite')]),
+               OrderedDict([('directoryName', 'profiles'),
+                            ('inFolder', 'false'),
+                            ('metaFile', 'false'),
+                            ('suffix', 'profile'),
+                            ('xmlName', 'Profile')]),
+               OrderedDict([('directoryName', 'permissionsets'),
+                            ('inFolder', 'false'),
+                            ('metaFile', 'false'),
+                            ('suffix', 'permissionset'),
+                            ('xmlName', 'PermissionSet')]),
+               OrderedDict([('directoryName', 'customMetadata'),
+                            ('inFolder', 'false'),
+                            ('metaFile', 'false'),
+                            ('suffix', 'md'),
+                            ('xmlName', 'CustomMetadata')]),
+               OrderedDict([('directoryName', 'profilePasswordPolicies'),
+                            ('inFolder', 'false'),
+                            ('metaFile', 'false'),
+                            ('suffix', 'profilePasswordPolicy'),
+                            ('xmlName', 'ProfilePasswordPolicy')]),
+               OrderedDict([('directoryName', 'profileSessionSettings'),
+                            ('inFolder', 'false'),
+                            ('metaFile', 'false'),
+                            ('suffix', 'profileSessionSetting'),
+                            ('xmlName', 'ProfileSessionSetting')]),
+               OrderedDict([('directoryName', 'datacategorygroups'),
+                            ('inFolder', 'false'),
+                            ('metaFile', 'false'),
+                            ('suffix', 'datacategorygroup'),
+                            ('xmlName', 'DataCategoryGroup')]),
+               OrderedDict([('directoryName', 'remoteSiteSettings'),
+                            ('inFolder', 'false'),
+                            ('metaFile', 'false'),
+                            ('suffix', 'remoteSite'),
+                            ('xmlName', 'RemoteSiteSetting')]),
+               OrderedDict([('directoryName', 'cspTrustedSites'),
+                            ('inFolder', 'false'),
+                            ('metaFile', 'false'),
+                            ('suffix', 'cspTrustedSite'),
+                            ('xmlName', 'CspTrustedSite')]),
+               OrderedDict([('childXmlNames', 'MatchingRule'),
+                            ('directoryName', 'matchingRules'),
+                            ('inFolder', 'false'),
+                            ('metaFile', 'false'),
+                            ('suffix', 'matchingRule'),
+                            ('xmlName', 'MatchingRules')]),
+               OrderedDict([('directoryName', 'duplicateRules'),
+                            ('inFolder', 'false'),
+                            ('metaFile', 'false'),
+                            ('suffix', 'duplicateRule'),
+                            ('xmlName', 'DuplicateRule')]),
+               OrderedDict([('directoryName', 'cleanDataServices'),
+                            ('inFolder', 'false'),
+                            ('metaFile', 'false'),
+                            ('suffix', 'cleanDataService'),
+                            ('xmlName', 'CleanDataService')]),
+               OrderedDict([('directoryName', 'authproviders'),
+                            ('inFolder', 'false'),
+                            ('metaFile', 'false'),
+                            ('suffix', 'authprovider'),
+                            ('xmlName', 'AuthProvider')]),
+               OrderedDict([('directoryName', 'eclair'),
+                            ('inFolder', 'false'),
+                            ('metaFile', 'true'),
+                            ('suffix', 'geodata'),
+                            ('xmlName', 'EclairGeoData')]),
+               OrderedDict([('directoryName', 'sites'),
+                            ('inFolder', 'false'),
+                            ('metaFile', 'false'),
+                            ('suffix', 'site'),
+                            ('xmlName', 'CustomSite')]),
+               OrderedDict([('directoryName', 'channelLayouts'),
+                            ('inFolder', 'false'),
+                            ('metaFile', 'false'),
+                            ('suffix', 'channelLayout'),
+                            ('xmlName', 'ChannelLayout')]),
+               OrderedDict([('directoryName', 'contentassets'),
+                            ('inFolder', 'false'),
+                            ('metaFile', 'true'),
+                            ('suffix', 'asset'),
+                            ('xmlName', 'ContentAsset')]),
+               OrderedDict([('childXmlNames',
+                             ['SharingOwnerRule', 'SharingCriteriaRule']),
+                            ('directoryName', 'sharingRules'),
+                            ('inFolder', 'false'),
+                            ('metaFile', 'false'),
+                            ('suffix', 'sharingRules'),
+                            ('xmlName', 'SharingRules')]),
+               OrderedDict([('directoryName', 'sharingSets'),
+                            ('inFolder', 'false'),
+                            ('metaFile', 'false'),
+                            ('suffix', 'sharingSet'),
+                            ('xmlName', 'SharingSet')]),
+               OrderedDict([('directoryName', 'communities'),
+                            ('inFolder', 'false'),
+                            ('metaFile', 'false'),
+                            ('suffix', 'community'),
+                            ('xmlName', 'Community')]),
+               OrderedDict([('directoryName', 'ChatterExtensions'),
+                            ('inFolder', 'false'),
+                            ('metaFile', 'false'),
+                            ('suffix', 'ChatterExtension'),
+                            ('xmlName', 'ChatterExtension')]),
+               OrderedDict([('directoryName', 'callCenters'),
+                            ('inFolder', 'false'),
+                            ('metaFile', 'false'),
+                            ('suffix', 'callCenter'),
+                            ('xmlName', 'CallCenter')]),
+               OrderedDict([('directoryName', 'connectedApps'),
+                            ('inFolder', 'false'),
+                            ('metaFile', 'false'),
+                            ('suffix', 'connectedApp'),
+                            ('xmlName', 'ConnectedApp')]),
+               OrderedDict([('directoryName', 'appMenus'),
+                            ('inFolder', 'false'),
+                            ('metaFile', 'false'),
+                            ('suffix', 'appMenu'),
+                            ('xmlName', 'AppMenu')]),
+               OrderedDict([('directoryName', 'delegateGroups'),
+                            ('inFolder', 'false'),
+                            ('metaFile', 'false'),
+                            ('suffix', 'delegateGroup'),
+                            ('xmlName', 'DelegateGroup')]),
+               OrderedDict([('directoryName', 'siteDotComSites'),
+                            ('inFolder', 'false'),
+                            ('metaFile', 'true'),
+                            ('suffix', 'site'),
+                            ('xmlName', 'SiteDotCom')]),
+               OrderedDict([('directoryName', 'networkBranding'),
+                            ('inFolder', 'false'),
+                            ('metaFile', 'true'),
+                            ('suffix', 'networkBranding'),
+                            ('xmlName', 'NetworkBranding')]),
+               OrderedDict([('directoryName', 'brandingSets'),
+                            ('inFolder', 'false'),
+                            ('metaFile', 'false'),
+                            ('suffix', 'brandingSet'),
+                            ('xmlName', 'BrandingSet')]),
+               OrderedDict([('directoryName', 'flowCategories'),
+                            ('inFolder', 'false'),
+                            ('metaFile', 'false'),
+                            ('suffix', 'flowCategory'),
+                            ('xmlName', 'FlowCategory')]),
+               OrderedDict([('directoryName', 'lightningBolts'),
+                            ('inFolder', 'false'),
+                            ('metaFile', 'false'),
+                            ('suffix', 'lightningBolt'),
+                            ('xmlName', 'LightningBolt')]),
+               OrderedDict([('directoryName', 'lightningExperienceThemes'),
+                            ('inFolder', 'false'),
+                            ('metaFile', 'false'),
+                            ('suffix', 'lightningExperienceTheme'),
+                            ('xmlName', 'LightningExperienceTheme')]),
+               OrderedDict([('directoryName', 'samlssoconfigs'),
+                            ('inFolder', 'false'),
+                            ('metaFile', 'false'),
+                            ('suffix', 'samlssoconfig'),
+                            ('xmlName', 'SamlSsoConfig')]),
+               OrderedDict([('directoryName', 'corsWhitelistOrigins'),
+                            ('inFolder', 'false'),
+                            ('metaFile', 'false'),
+                            ('suffix', 'corsWhitelistOrigin'),
+                            ('xmlName', 'CorsWhitelistOrigin')]),
+               OrderedDict([('directoryName', 'actionLinkGroupTemplates'),
+                            ('inFolder', 'false'),
+                            ('metaFile', 'false'),
+                            ('suffix', 'actionLinkGroupTemplate'),
+                            ('xmlName', 'ActionLinkGroupTemplate')]),
+               OrderedDict([('directoryName', 'transactionSecurityPolicies'),
+                            ('inFolder', 'false'),
+                            ('metaFile', 'false'),
+                            ('suffix', 'transactionSecurityPolicy'),
+                            ('xmlName', 'TransactionSecurityPolicy')]),
+               OrderedDict([('directoryName', 'synonymDictionaries'),
+                            ('inFolder', 'false'),
+                            ('metaFile', 'false'),
+                            ('suffix', 'synonymDictionary'),
+                            ('xmlName', 'SynonymDictionary')]),
+               OrderedDict([('directoryName', 'pathAssistants'),
+                            ('inFolder', 'false'),
+                            ('metaFile', 'false'),
+                            ('suffix', 'pathAssistant'),
+                            ('xmlName', 'PathAssistant')]),
+               OrderedDict([('directoryName', 'LeadConvertSettings'),
+                            ('inFolder', 'false'),
+                            ('metaFile', 'false'),
+                            ('suffix', 'LeadConvertSetting'),
+                            ('xmlName', 'LeadConvertSettings')]),
+               OrderedDict([('directoryName', 'cachePartitions'),
+                            ('inFolder', 'false'),
+                            ('metaFile', 'false'),
+                            ('suffix', 'cachePartition'),
+                            ('xmlName', 'PlatformCachePartition')]),
+               OrderedDict([('directoryName', 'topicsForObjects'),
+                            ('inFolder', 'false'),
+                            ('metaFile', 'false'),
+                            ('suffix', 'topicsForObjects'),
+                            ('xmlName', 'TopicsForObjects')]),
+               OrderedDict([('directoryName', 'emailservices'),
+                            ('inFolder', 'false'),
+                            ('metaFile', 'false'),
+                            ('suffix', 'xml'),
+                            ('xmlName', 'EmailServicesFunction')]),
+               OrderedDict([('directoryName', 'settings'),
+                            ('inFolder', 'false'),
+                            ('metaFile', 'false'),
+                            ('suffix', 'settings'),
+                            ('xmlName', 'Settings')])]),
+             ('organizationNamespace', None),
+             ('partialSaveAllowed', 'true'),
+             ('testRequired', 'false')])
+
+</code></pre>
+
+<div style="page-break-before:always"></div>
+
+<h1 id="salesforcexytoolscorepythonsalesforcepackagexml">SalesforceXyToolsCore/Python上でSalesforce組織からのPackage.xmlを作成</h1>
+<h2 id="topic_8">Topic</h2>
+<ul>
+<li><a href="http://salesforcexytools.com/categories/SalesforceXyToolsCore-JP/">SalesforceXyToolsCore</a>を使ってSalesforce組織からのPackage.xmlを作成</li>
+</ul>
+<h2 id="packagexml">Package.xmlの作成</h2>
+<ul>
+<li>Salesforce組織のユーザ名、パスワード、Apiバージョン、Product/Sandboxを設定してください。</li>
+</ul>
+<pre><code class="python">from SalesforceXytoolsCore import *
+import pprint
+
+config = {
+    &quot;api_version&quot;: 42.0, 
+    &quot;username&quot;: &quot;sfdc username&quot;, 
+    &quot;password&quot;: &quot;sfdc password&quot;, 
+    &quot;security_token&quot;: &quot;&quot;, 
+    &quot;is_sandbox&quot;: True
+}
+
+meta_api = MetadataApi(username=config[&quot;username&quot;], 
+                password=config[&quot;password&quot;], 
+                security_token=config[&quot;security_token&quot;], 
+                sandbox=config[&quot;is_sandbox&quot;],
+                version=config[&quot;api_version&quot;]
+                )
+
+
+&quot;&quot;&quot;buildPackageXml&quot;&quot;&quot;
+packagexml = meta_api.buildPackageXml()
+</code></pre>
+
+<p>結果確認：</p>
+<pre><code class="xml">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
+&lt;Package xmlns=&quot;http://soap.sforce.com/2006/04/metadata&quot;&gt;
+
+    &lt;types&gt;
+        &lt;members&gt;*&lt;/members&gt;
+        &lt;name&gt;InstalledPackage&lt;/name&gt;
+    &lt;/types&gt;
+    &lt;types&gt;
+        &lt;members&gt;*&lt;/members&gt;
+        &lt;name&gt;CustomLabels&lt;/name&gt;
+    &lt;/types&gt;
+
+        ....................
+        ........省略.........
+        ....................
+    &lt;types&gt;
+        &lt;members&gt;Account&lt;/members&gt;
+        &lt;members&gt;AccountChangeEvent&lt;/members&gt;
+        &lt;members&gt;AccountCleanInfo&lt;/members&gt;
+        &lt;members&gt;AccountContactRole&lt;/members&gt;
+        &lt;members&gt;AccountFeed&lt;/members&gt;
+        &lt;members&gt;AccountHistory&lt;/members&gt;
+        &lt;members&gt;AccountPartner&lt;/members&gt;
+        &lt;members&gt;AccountShare&lt;/members&gt;
+        &lt;members&gt;ActionLinkGroupTemplate&lt;/members&gt;
+        &lt;members&gt;ActionLinkTemplate&lt;/members&gt;
+        &lt;members&gt;ActivityHistory&lt;/members&gt;
+        &lt;members&gt;AdditionalNumber&lt;/members&gt;
+        &lt;members&gt;AggregateResult&lt;/members&gt;
+        ....................
+        ........省略.........
+        ....................
+        &lt;name&gt;CustomObject&lt;/name&gt;
+    &lt;/types&gt;
+    &lt;types&gt;
+        &lt;members&gt;unfiled$public&lt;/members&gt;
+        ....................
+        ........省略.........
+        ....................
+        &lt;members&gt;unfiled$public/SupportCaseAssignmentNotification&lt;/members&gt;
+        &lt;members&gt;unfiled$public/SalesNewCustomerEmail&lt;/members&gt;
+        &lt;members&gt;unfiled$public/SupportCaseCreatedWebInquiries&lt;/members&gt;
+        &lt;members&gt;unfiled$public/SupportEscalatedCaseNotification&lt;/members&gt;
+        &lt;members&gt;unfiled$public/SupportSelfServiceResetPassword&lt;/members&gt;
+        &lt;members&gt;unfiled$public/MarketingProductInquiryResponse&lt;/members&gt;
+        &lt;members&gt;unfiled$public/SupportCaseCreatedPhoneInquiries&lt;/members&gt;
+        &lt;members&gt;unfiled$public/SUPPORTSelfServiceResetPasswordSAMPLE&lt;/members&gt;
+        &lt;members&gt;unfiled$public/SupportEscalatedCaseReassignment&lt;/members&gt;
+        &lt;members&gt;unfiled$public/SUPPORTSelfServiceNewCommentNotificationSAMPLE&lt;/members&gt;
+        &lt;name&gt;EmailTemplate&lt;/name&gt;
+    &lt;/types&gt;
+
+        ....................
+        ........省略.........
+        ....................
+    &lt;types&gt;
+        &lt;members&gt;*&lt;/members&gt;
+        &lt;name&gt;TopicsForObjects&lt;/name&gt;
+    &lt;/types&gt;
+    &lt;types&gt;
+        &lt;members&gt;*&lt;/members&gt;
+        &lt;name&gt;EmailServicesFunction&lt;/name&gt;
+    &lt;/types&gt;
+    &lt;types&gt;
+        &lt;members&gt;*&lt;/members&gt;
+        &lt;name&gt;Settings&lt;/name&gt;
+    &lt;/types&gt;
+    &lt;version&gt;42.0&lt;/version&gt;
+&lt;/Package&gt;
+
+
+</code></pre>
+
+<h2 id="sfdcpackage">SFDC組織からPackage関するリストを取得</h2>
+<pre><code class="python">&quot;&quot;&quot;packageTypeList&quot;&quot;&quot;
+print('&gt;&gt;&gt;packageTypeList')
+pprint.pprint(meta_api.packageTypeList())
+</code></pre>
+
+<p>結果確認</p>
+<pre><code class="json">
+[{'members': ['*'], 'name': 'InstalledPackage'},
+ {'members': ['*'], 'name': 'CustomLabels'},
+ {'members': ['*'], 'name': 'StaticResource'},
+         ....................
+        ........省略.........
+        ....................
+ {'members': ['*'], 'name': 'TopicsForObjects'},
+ {'members': ['*'], 'name': 'EmailServicesFunction'},
+ {'members': ['*'], 'name': 'Settings'}]
+
+</code></pre>
+
+<div style="page-break-before:always"></div>
+
+<h1 id="salesforcexytoolscorepythonmetadata">SalesforceXyToolsCore/Python上ですべてのMetadataを情報を取得してみよう</h1>
+<h2 id="topic_9">Topic</h2>
+<ul>
+<li><a href="http://salesforcexytools.com/categories/SalesforceXyToolsCore-JP/">SalesforceXyToolsCore</a>を使ってすべてのMetadataを情報を取得する。</li>
+<li>メタデータのID,　Typeを取得可能です。</li>
+</ul>
+<h2 id="metadata">すべてのMetadataを情報を取得する</h2>
+<ul>
+<li>Salesforce組織のユーザ名、パスワード、Apiバージョン、Product/Sandboxを設定してください。</li>
+</ul>
+<pre><code class="python">from SalesforceXytoolsCore import *
+import pprint
+
+config = {
+    &quot;api_version&quot;: 42.0, 
+    &quot;username&quot;: &quot;sfdc username&quot;, 
+    &quot;password&quot;: &quot;sfdc password&quot;, 
+    &quot;security_token&quot;: &quot;&quot;, 
+    &quot;is_sandbox&quot;: True
+}
+
+meta_api = MetadataApi(username=config[&quot;username&quot;], 
+                password=config[&quot;password&quot;], 
+                security_token=config[&quot;security_token&quot;], 
+                sandbox=config[&quot;is_sandbox&quot;],
+                version=config[&quot;api_version&quot;]
+                )
+
+
+&quot;&quot;&quot;getAllMetadataMap&quot;&quot;&quot;
+all_metadata_map = meta_api.getAllMetadataMap()
+pprint.pprint(all_metadata_map)
+
+</code></pre>
+
+<h3 id="_8">結果確認</h3>
+<pre><code class="json">{'ApexClass': {'classes/A_Batch.cls': OrderedDict([('createdById',
+                                                    '005xxxxxxxxxxxxx'),
+                                                   ('createdByName',
+                                                    'SFDC Exia'),
+                                                   ('createdDate',
+                                                    '2010-08-09T00:07:13.000Z'),
+                                                   ('fileName',
+                                                    'classes/A_Batch.cls'),
+                                                   ('fullName', 'A_Batch'),
+                                                   ('id', '01pxxxxxxxxxxxxx'),
+                                                   ('lastModifiedById',
+                                                    '005xxxxxxxxxxxxx'),
+                                                   ('lastModifiedByName',
+                                                    'SFDC Exia'),
+                                                   ('lastModifiedDate',
+                                                    '2010-08-09T00:24:29.000Z'),
+                                                   ('manageableState',
+                                                    'unmanaged'),
+                                                   ('type', 'ApexClass')]),
+               ................省略
+                'Report': {
+            'reports/Xy/MyID.report': OrderedDict([('createdById',
+                                                    '005xxxxxxxxxxxxx'),
+                                                   ('createdByName',
+                                                    'SFDC Exia'),
+                                                   ('createdDate',
+                                                    '2010-09-15T00:29:36.000Z'),
+                                                   ('fileName',
+                                                    'reports/Xy/MyID.report'),
+                                                   ('fullName', 'Xy/MyID'),
+                                                   ('id', '00OXXXXXXXXXXXXXX'),
+                                                   ('lastModifiedById',
+                                                    '005XXXXXXXXXXXXXX'),
+                                                   ('lastModifiedByName',
+                                                    'SFDC Exia'),
+                                                   ('lastModifiedDate',
+                                                    '2010-09-25T00:03:33.000Z'),
+                                                   ('manageableState',
+                                                    'unmanaged'),
+                                                   ('type', 'Report')]),
+               ................省略
+}
+
+</code></pre>
+
+<h2 id="metadata_1">Metadataのリストを取得したい場合</h2>
+<pre><code class="python">&quot;&quot;&quot;listAllMetadata &quot;&quot;&quot;
+for meta in meta_api.listAllMetadata():
+    pprint.pprint(meta)
+</code></pre>
+
+<h2 id="_9">指定したメタデータを取得する</h2>
+<pre><code class="python">&quot;&quot;&quot;listmeta&quot;&quot;&quot;
+query_option_list = [
+    {
+        &quot;metadata_type&quot; : &quot;EmailFolder&quot;,
+        &quot;folder&quot; : &quot;&quot;
+    },
+    {
+        &quot;metadata_type&quot; : &quot;ApexClass&quot;,
+        &quot;folder&quot; : &quot;&quot;
+    }
+]
+listmeta_result = meta_api.listMetadata(query_option_list)
+print(len(listmeta_result))
+for meta in listmeta_result:
+    pprint.pprint(meta)
+</code></pre>
+
+<div style="page-break-before:always"></div>
+
+<h1 id="salesforcexytoolscorepythonsalesforce_1">SalesforceXyToolsCore/Python上でSalesforce組織のフォルダーを取得する</h1>
+<h2 id="topic_10">Topic</h2>
+<ul>
+<li><a href="http://salesforcexytools.com/categories/SalesforceXyToolsCore-JP/">SalesforceXyToolsCore</a>を使ってすべてのSalesforce組織のフォルダーを取得する</li>
+</ul>
+<h2 id="_10">メールテンプレートのフォルダーを取得する</h2>
+<ul>
+<li>Salesforce組織のユーザ名、パスワード、Apiバージョン、Product/Sandboxを設定してください。</li>
+</ul>
+<pre><code class="python">from SalesforceXytoolsCore import *
+import pprint
+
+config = {
+    &quot;api_version&quot;: 42.0, 
+    &quot;username&quot;: &quot;sfdc username&quot;, 
+    &quot;password&quot;: &quot;sfdc password&quot;, 
+    &quot;security_token&quot;: &quot;&quot;, 
+    &quot;is_sandbox&quot;: True
+}
+
+meta_api = MetadataApi(username=config[&quot;username&quot;], 
+                password=config[&quot;password&quot;], 
+                security_token=config[&quot;security_token&quot;], 
+                sandbox=config[&quot;is_sandbox&quot;],
+                version=config[&quot;api_version&quot;]
+                )
+
+
+&quot;&quot;&quot;listFolder&quot;&quot;&quot;
+folders = meta_api.listFolder(&quot;EmailTemplate&quot;)
+pprint.pprint(folders)
+
+</code></pre>
+
+<h3 id="_11">結果確認</h3>
+<pre><code class="json">{'ApexClass': {'classes/A_Batch.cls': OrderedDict([('createdById',
+                                                    '005xxxxxxxxxxxxx'),
+                                                   ('createdByName',
+                                                    'SFDC Exia'),
+                                                   ('createdDate',
+                                                    '2010-08-09T00:07:13.000Z'),
+                                                   ('fileName',
+                                                    'classes/A_Batch.cls'),
+                                                   ('fullName', 'A_Batch'),
+                                                   ('id', '01pxxxxxxxxxxxxx'),
+                                                   ('lastModifiedById',
+                                                    '005xxxxxxxxxxxxx'),
+                                                   ('lastModifiedByName',
+                                                    'SFDC Exia'),
+                                                   ('lastModifiedDate',
+                                                    '2010-08-09T00:24:29.000Z'),
+                                                   ('manageableState',
+                                                    'unmanaged'),
+                                                   ('type', 'ApexClass')]),
+               ................省略
+                'Report': {
+            'reports/Xy/MyID.report': OrderedDict([('createdById',
+                                                    '005xxxxxxxxxxxxx'),
+                                                   ('createdByName',
+                                                    'SFDC Exia'),
+                                                   ('createdDate',
+                                                    '2010-09-15T00:29:36.000Z'),
+                                                   ('fileName',
+                                                    'reports/Xy/MyID.report'),
+                                                   ('fullName', 'Xy/MyID'),
+                                                   ('id', '00OXXXXXXXXXXXXXX'),
+                                                   ('lastModifiedById',
+                                                    '005XXXXXXXXXXXXXX'),
+                                                   ('lastModifiedByName',
+                                                    'SFDC Exia'),
+                                                   ('lastModifiedDate',
+                                                    '2010-09-25T00:03:33.000Z'),
+                                                   ('manageableState',
+                                                    'unmanaged'),
+                                                   ('type', 'Report')]),
+               ................省略
+}
+
+</code></pre>
+
+<h2 id="_12">その以外のフォルダー</h2>
+<p>Salesforce には、現在次の 4 つのフォルダの種類があります。</p>
+<ul>
+<li>ドキュメントフォルダ</li>
+<li>メールフォルダ</li>
+<li>レポートフォルダ</li>
+<li>ダッシュボードフォルダ</li>
+</ul>
+<p>Four folder types currently exist in Salesforce:</p>
+<ul>
+<li>Document folder</li>
+<li>Email folder</li>
+<li>Report folder</li>
+<li>Dashboard folder</li>
+</ul>
+<p>取得方法：</p>
+<pre><code class="python">&quot;&quot;&quot;Email folderの取得&quot;&quot;&quot;
+folders = meta_api.listFolder(&quot;EmailTemplate&quot;)
+
+&quot;&quot;&quot;Document folderの取得&quot;&quot;&quot;
+folders = meta_api.listFolder(&quot;Document&quot;)
+
+&quot;&quot;&quot;Report folderの取得&quot;&quot;&quot;
+folders = meta_api.listFolder(&quot;Report&quot;)
+
+&quot;&quot;&quot;Dashboard folderの取得&quot;&quot;&quot;
+folders = meta_api.listFolder(&quot;Dashboard&quot;)
+
+
+</code></pre>
+
+<div style="page-break-before:always"></div>
+
+<h1 id="salesforcexytoolscorepython3salesforce">SalesforceXyToolsCore/Python上でたった3行でSalesforce組織からのメタデータの取得</h1>
+<h2 id="topic_11">Topic</h2>
+<ul>
+<li><a href="http://salesforcexytools.com/categories/SalesforceXyToolsCore-JP/">SalesforceXyToolsCore</a>を使ってSalesforce組織からのメタデータの取得</li>
+</ul>
+<h2 id="_13">メリット</h2>
+<ul>
+<li>package.xml配置不要、動的に生成</li>
+<li>すべてのSalesforce組織からのメタデータ一括で取得</li>
+</ul>
+<h2 id="salesforce">Salesforce組織からのメタデータの取得</h2>
+<p>Salesforce組織のユーザ名、パスワード、Apiバージョン、Product/Sandboxを設定してください。</p>
+<pre><code class="python">from SalesforceXytoolsCore import *
+import pprint
+
+config = {
+    &quot;api_version&quot;: 42.0, 
+    &quot;username&quot;: &quot;sfdc username&quot;, 
+    &quot;password&quot;: &quot;sfdc password&quot;, 
+    &quot;security_token&quot;: &quot;&quot;, 
+    &quot;is_sandbox&quot;: True
+}
+
+meta_api = MetadataApi(username=config[&quot;username&quot;], 
+                password=config[&quot;password&quot;], 
+                security_token=config[&quot;security_token&quot;], 
+                sandbox=config[&quot;is_sandbox&quot;],
+                version=config[&quot;api_version&quot;]
+                )
+
+
+&quot;&quot;&quot;retrieve zip file&quot;&quot;&quot;
+meta_api.retrieveZip(&quot;./save_dir&quot;,&quot;metadata-retrieve.zip&quot;)
+</code></pre>
+
+<p>結果確認：</p>
+<pre><code>ls ./save_dir
+</code></pre>
+
+<h2 id="_14">分析</h2>
+<h3 id="_15">メタデータ取得ロジック</h3>
+<ol>
+<li>retrieve() コールを発行し、非同期的な取得を開始すると、<a href="https://developer.salesforce.com/docs/atlas.ja-jp.api_meta.meta/api_meta/meta_asyncresult.htm">AsyncResult</a> オブジェクトが返されます。<a href="https://developer.salesforce.com/docs/atlas.ja-jp.api_meta.meta/api_meta/meta_asyncresult.htm#async_result_id">id</a> 項目の値をメモし、次のステップで使用します。</li>
+<li><a href="https://developer.salesforce.com/docs/atlas.ja-jp.api_meta.meta/api_meta/meta_checkretrievestatus.htm">checkRetrieveStatus()</a> コールを発行して、最初のステップの <a href="https://developer.salesforce.com/docs/atlas.ja-jp.api_meta.meta/api_meta/meta_asyncresult.htm">AsyncResult</a> オブジェクトから <a href="https://developer.salesforce.com/docs/atlas.ja-jp.api_meta.meta/api_meta/meta_asyncresult.htm#async_result_id">id</a> 値を渡します。返された <a href="https://developer.salesforce.com/docs/atlas.ja-jp.api_meta.meta/api_meta/meta_retrieveresult.htm#meta_retrieveresult">RetrieveResult</a> の <a href="https://developer.salesforce.com/docs/atlas.ja-jp.api_meta.meta/api_meta/meta_retrieveresult.htm#retrieveresult_done">done</a> 項目の値をチェックします。true の場合、コールが完了して、次のステップに進むことを意味します。それ以外の場合は、<a href="https://developer.salesforce.com/docs/atlas.ja-jp.api_meta.meta/api_meta/meta_retrieveresult.htm#retrieveresult_done">done</a> 項目が true になるまで、このステップを繰り返して <a href="https://developer.salesforce.com/docs/atlas.ja-jp.api_meta.meta/api_meta/meta_checkretrievestatus.htm">checkRetrieveStatus()</a> を再度コールします。</li>
+<li>前のステップの <a href="https://developer.salesforce.com/docs/atlas.ja-jp.api_meta.meta/api_meta/meta_checkretrievestatus.htm">checkRetrieveStatus()</a> への最後のコールで返された <a href="https://developer.salesforce.com/docs/atlas.ja-jp.api_meta.meta/api_meta/meta_retrieveresult.htm#meta_retrieveresult">RetrieveResult</a> から zip ファイル (<a href="https://developer.salesforce.com/docs/atlas.ja-jp.api_meta.meta/api_meta/meta_retrieveresult.htm#retrieveResult_zipFile">zipFile</a> 項目) および他の必要な項目を取得します。</li>
+</ol>
+<h3 id="retrieve">retrieveタスクを開始</h3>
+<p>タスクを発行する</p>
+<pre><code class="python">&quot;&quot;&quot;retrieve&quot;&quot;&quot;
+result = meta_api.startRetrieve()
+pprint.pprint(result)
+## print(result[&quot;done&quot;])
+## print(result[&quot;id&quot;])
+## print(result[&quot;state&quot;])
+
+</code></pre>
+
+<h3 id="retrieve_1">retrieveの状況を確認</h3>
+<p>宣言的なメタデータコール retrieve() の状況を確認し、zip ファイルの内容を返します。</p>
+<pre><code>&quot;&quot;&quot;checkRetrieveStatus&quot;&quot;&quot;
+retrieve_id = result[&quot;id&quot;]
+check_result = meta_api.checkRetrieveStatus(retrieve_id)
+pprint.pprint(check_result)
+
+</code></pre>
+
+<div style="page-break-before:always"></div>
+
+<h1 id="salesforcexytoolscorepythonsalesforce_2">SalesforceXyToolsCore/Python上でSalesforce組織の添付ファイルを一括ダウンロードする</h1>
+<h2 id="topic_12">Topic</h2>
+<ul>
+<li><a href="http://salesforcexytools.com/categories/SalesforceXyToolsCore-JP/">SalesforceXyToolsCore</a>を使ってSalesforce組織の添付ファイルを一括ダウンロードする</li>
+</ul>
+<h2 id="attachment">Attachment</h2>
+<p>User が親オブジェクトにアップロードおよび添付したファイルをダウンロードする。
+<code>Body</code>をファイルに保存すれば、完了です。</p>
+<h2 id="salesforce_1">Salesforce組織の添付ファイルを一括ダウンロードする</h2>
+<ul>
+<li>Salesforce組織のユーザ名、パスワード、Apiバージョン、Product/Sandboxを設定してください。</li>
+</ul>
+<pre><code class="python">from SalesforceXytoolsCore import *
+import pprint
+
+config = {
+    &quot;api_version&quot;: 42.0, 
+    &quot;username&quot;: &quot;sfdc username&quot;, 
+    &quot;password&quot;: &quot;sfdc password&quot;, 
+    &quot;security_token&quot;: &quot;&quot;, 
+    &quot;is_sandbox&quot;: True
+}
+
+SAVE_DIR = './attachments_download'
+if not os.path.exists(SAVE_DIR):
+    os.mkdir(SAVE_DIR)
+
+rest_api = RestApi(username=config[&quot;username&quot;], 
+                password=config[&quot;password&quot;], 
+                security_token=config[&quot;security_token&quot;], 
+                sandbox=config[&quot;is_sandbox&quot;],
+                version=config[&quot;api_version&quot;]
+                )
+
+attachments = rest_api.query(&quot;SELECT Id, Name, Body FROM Attachment LIMIT 2000&quot;)
+print(&quot;添付ファイル件数 : &quot; + str(len(attachments)))
+
+for attachment in attachments[&quot;records&quot;]:
+    print(&quot;start to download : &quot; + attachment[&quot;Name&quot;])
+    &quot;&quot;&quot;
+    Run Rest API : download attachment
+    &quot;&quot;&quot;
+    rest_path = &quot;/services/data/v42.0/sobjects/Attachment/{id}/Body&quot;.format(id=attachment[&quot;Id&quot;])
+    result = rest_api.call_rest(
+        method='GET',
+        path=rest_path, 
+        params={},
+    )
+    with open(os.path.join(SAVE_DIR, attachment[&quot;Id&quot;] + &quot;_&quot; + attachment[&quot;Name&quot;]), mode='wb') as f:
+        f.write(result.content)
+</code></pre>
+
+<p>実行すれば、添付ファイル件数ファイルをダウンロードする可能です。
+<div style="page-break-before:always"></div></p>
+              
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+      
+        <a href="../014-download-attachments/" class="btn btn-neutral" title="SalesforceXyToolsCore/Python上でSalesforce組織の添付ファイルを一括ダウンロードする"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+  </div>
+
+  Built with <a href="http://www.mkdocs.org">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+      
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" style="cursor: pointer">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+      
+        <span><a href="../014-download-attachments/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+      
+      
+    </span>
+</div>
+    <script>var base_url = '../..';</script>
+    <script src="../../js/theme.js" defer></script>
+      <script src="../../search/main.js" defer></script>
+
+</body>
+</html>
