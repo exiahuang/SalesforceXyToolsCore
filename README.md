@@ -226,3 +226,6 @@ tooling_api.getLog(log_id)
 
 ```
 
+# Sfdc Cli
+if you want to use cli, you can use [exiahuang/sfdc-cli](https://github.com/exiahuang/sfdc-cli).
+
